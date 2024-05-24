@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OperatorWebAppApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(OperatorWebAppApplication.class, args);
+        System.out.println(" The Operator call fault is up and running ");
     }
 
 }
