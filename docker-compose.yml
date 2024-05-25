@@ -1,0 +1,46 @@
+# docker-compose up
+# docker-compose down # will discard the containers
+# docker-compose stop # does NOT remove containers
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Sets the password for the root user.
+      MYSQL_DATABASE: operatorwebapp # Creates a database with the specified name.
+      MYSQL_USER: user # Creates a user with the specified name.
+      MYSQL_PASSWORD: password # Sets the password for the created user.
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+  app:
+    image: openjdk:11-jdk
+    container_name: operatorwebapp-container
+    build:
+      context: ./OperatorWebApp
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/operatorwebapp
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  # ensures that all data stored by MySQL in /var/lib/mysql is persisted in the mysql-data volume on the host.
+  # if the MySQL container is stopped, removed, or recreated,
+  # the data in the mysql-data volume remains intact and can be reused by a new MySQL container.
