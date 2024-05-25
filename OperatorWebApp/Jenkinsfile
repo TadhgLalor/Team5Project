@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         MAVEN_HOME = '/usr/local/opt/maven'
+        SONARQUBE_ENV = 'SonarQube'  // SonarQube server in Jenkins settings
     }
 
     stages {
@@ -34,6 +35,19 @@ pipeline {
                     script {
                         echo 'Running tests...'
                         sh "${MAVEN_HOME}/bin/mvn test"
+                    }
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {  // Use the SonarQube environment
+                    dir('OperatorWebApp') {
+                        script {
+                            echo 'Running SonarQube analysis...'
+                            sh "${MAVEN_HOME}/bin/mvn sonar:sonar"
+                        }
                     }
                 }
             }
