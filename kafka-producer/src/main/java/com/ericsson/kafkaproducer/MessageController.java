@@ -12,9 +12,16 @@ public class MessageController {
     private KafkaProducerService producerService;
 
     @GetMapping("/send")
-    public String sendMessage(@RequestParam("message") String message) {
+    public String sendMessage(@RequestParam("nodeId") int nodeId, @RequestParam("networkId") int networkId) {
+        NodeFault message = new NodeFault(nodeId, networkId);
+        System.out.println("Entered URI");
         producerService.sendMessage(message);
         return "Message sent to Kafka topic";
     }
+
+
+
+
+
 }
 

@@ -10,9 +10,9 @@ public class KafkaProducerService {
     private static final String TOPIC = "test_topic";
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, NodeFault> kafkaTemplate;
 
-    public void sendMessage(String message) {
+    public void sendMessage(NodeFault message) {
         kafkaTemplate.send(TOPIC, message);
     }
 }
