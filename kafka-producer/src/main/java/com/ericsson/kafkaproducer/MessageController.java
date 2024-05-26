@@ -21,9 +21,5 @@ public class MessageController {
         return "Message sent to Kafka topic";
     }
 
-
-
-
-
 }
 

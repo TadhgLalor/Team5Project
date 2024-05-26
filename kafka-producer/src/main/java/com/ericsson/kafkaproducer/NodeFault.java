@@ -1,7 +1,9 @@
 package com.ericsson.kafkaproducer;
+import java.time.LocalDateTime;
 
-
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 
 public class NodeFault {
@@ -12,6 +14,10 @@ public class NodeFault {
     private String callerName;
     private FaultReason faultReason;
 
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern ="dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime faultTimestamp;
+
     public NodeFault(int nodeId, int networkId, String networkName,int callerId, String callerName,
                      FaultReason faultReason) {
         this.nodeId = nodeId;
@@ -20,6 +26,7 @@ public class NodeFault {
         this.callerId=callerId;
         this.callerName=callerName;
         this.faultReason=faultReason;
+        faultTimestamp=LocalDateTime.now();
     }
 
     public int getNetworkId() {
@@ -44,5 +51,9 @@ public class NodeFault {
 
     public FaultReason getFaultReason() {
         return faultReason;
+    }
+
+    public LocalDateTime getFaultTimestamp() {
+        return faultTimestamp;
     }
 }
