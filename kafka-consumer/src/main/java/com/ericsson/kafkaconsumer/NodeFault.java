@@ -8,16 +8,19 @@ public class NodeFault {
     private String networkName;
     private int callerId;
     private String callerName;
+    private FaultReason faultReason;
+
 
 
     public NodeFault(@JsonProperty("nodeId") int nodeId, @JsonProperty("networkId") int networkId,
                      @JsonProperty("networkName") String networkName,@JsonProperty("callerId") int callerId,
-                     @JsonProperty("callerName") String callerName) {
+                     @JsonProperty("callerName") String callerName,@JsonProperty("faultReason")FaultReason faultReason) {
         this.nodeId = nodeId;
         this.networkId = networkId;
         this.networkName=networkName;
         this.callerId=callerId;
         this.callerName=callerName;
+        this.faultReason=faultReason;
     }
 
 
@@ -42,6 +45,10 @@ public class NodeFault {
         return networkName;
     }
 
+    public FaultReason getFaultReason() {
+        return faultReason;
+    }
+
     @Override
     public String toString() {
         return "###########NodeFault############{" +
@@ -50,6 +57,7 @@ public class NodeFault {
                 "NetworkName= "+networkName+
                 "Caller ID= "+callerId+
                 "Caller Name= "+callerName+
+                "Fault Reason = "+faultReason+
                 '}';
     }
 }
