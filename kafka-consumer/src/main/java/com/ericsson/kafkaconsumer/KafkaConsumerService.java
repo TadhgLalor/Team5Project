@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumerService {
 
     @KafkaListener(topics = "test_topic", groupId = "group_id")
-    public void consume(NodeFault message) {
+    public void consume(CallFault message) {
         System.out.println("Consumed message: " + message.toString());
     }
 }

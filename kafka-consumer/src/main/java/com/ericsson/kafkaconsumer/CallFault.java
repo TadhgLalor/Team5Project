@@ -9,7 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import java.time.LocalDateTime;
 
-public class NodeFault {
+public class CallFault {
     private int nodeId;
     private int networkId;
     private String networkName;
@@ -22,7 +22,7 @@ public class NodeFault {
     private LocalDateTime faultTimestamp;
 
 
-    public NodeFault(@JsonProperty("nodeId") int nodeId, @JsonProperty("networkId") int networkId,
+    public CallFault(@JsonProperty("nodeId") int nodeId, @JsonProperty("networkId") int networkId,
                      @JsonProperty("networkName") String networkName,@JsonProperty("callerId") int callerId,
                      @JsonProperty("callerName") String callerName,@JsonProperty("faultReason")FaultReason faultReason,
                      @JsonProperty("faultTimestamp") LocalDateTime faultTimestamp) {
@@ -63,7 +63,7 @@ public class NodeFault {
 
     @Override
     public String toString() {
-        return "###########NodeFault############{" +
+        return "###########CallFault############{" +
                 "networkId=" + networkId +
                 "NodeID= "+nodeId+
                 "NetworkName= "+networkName+
