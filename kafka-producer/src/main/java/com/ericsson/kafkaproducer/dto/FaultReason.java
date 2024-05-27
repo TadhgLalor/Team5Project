@@ -1,4 +1,4 @@
-package com.ericsson.kafkaproducer;
+package com.ericsson.kafkaproducer.dto;
 
 public enum FaultReason {
 
