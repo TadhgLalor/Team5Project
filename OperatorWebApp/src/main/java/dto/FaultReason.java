@@ -6,4 +6,6 @@ public enum FaultReason {
     NO_NETWORK_CAPACITY,
     WEAK_SIGNAL,
     UNKNOWN
+
+
 }
