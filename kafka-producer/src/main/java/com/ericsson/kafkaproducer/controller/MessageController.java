@@ -1,5 +1,9 @@
-package com.ericsson.kafkaproducer;
+package com.ericsson.kafkaproducer.controller;
 
+import com.ericsson.kafkaproducer.dto.CallFault;
+import com.ericsson.kafkaproducer.dto.FaultReason;
+import com.ericsson.kafkaproducer.service.KafkaProducerService;
+import com.ericsson.kafkaproducer.service.RandomMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +15,9 @@ public class MessageController {
     @Autowired
     private KafkaProducerService producerService;
 
+    @Autowired
+    private RandomMessageService randomMessageService;
+
     @GetMapping("/send")
     public String sendMessage(@RequestParam("nodeId") int nodeId, @RequestParam("networkId") int networkId,
                               @RequestParam("networkName") String networkName ,  @RequestParam("callerId")int callerId,
@@ -21,5 +28,18 @@ public class MessageController {
         return "Message sent to Kafka topic";
     }
 
+    @GetMapping("/sendRandom")
+    public String sendRandomMessage(){
+        CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
+        producerService.sendMessage(randomMessage);
+        return "Random Fault Message sent to Kafka topic";
+    }
+
+//    @GetMapping("/printRandom")
+//    public String printRandomFaultMessage(){
+//        CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
+//        System.out.println(randomMessage.getCallerId());
+//        return "Random Fault Message sent to Kafka topic";
+//    }
 }
 
