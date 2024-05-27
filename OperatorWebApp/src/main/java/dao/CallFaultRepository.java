@@ -1,6 +1,7 @@
 package dao;
 
 import dto.CallFault;
+import dto.FaultReason;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,6 @@ public interface CallFaultRepository extends JpaRepository<CallFault, Long> {
     List<CallFault> findByCallerIdAndFaultTimestampBetween(Integer callerId, LocalDateTime startDate, LocalDateTime endDate);
 
     List<CallFault> findByNodeIdAndFaultTimestampBetween(Integer nodeId, LocalDateTime startDate, LocalDateTime endDate);
+
+    List<CallFault> findByFaultReason(FaultReason faultReason);
 }
