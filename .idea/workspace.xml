@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cafd4cf0-29da-4a4d-8183-aa0adb7efae3" name="Changes" comment=" Endpoints Rest Controller">
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/java/com/ericsson/owa/OperatorWebAppApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/java/controllers/CallFaultController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/java/dao/CallFaultRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/java/dto/CallFault.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/java/dto/FaultReason.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/java/service/CallFaultService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OperatorWebApp/src/test/java/com/ericsson/owa/OperatorWebAppApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitignore.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;a00315060&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TadhgLalor/Team5Project.git&quot;,
+    &quot;accountId&quot;: &quot;f3c61626-f44c-4872-b74a-ee644b82beb4&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;TadhgLalor&quot;,
+    &quot;repository&quot;: &quot;Team5Project&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2guOaPUDiiCIF4ZMIA2CPWZDgaI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.OperatorWebAppApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#3 on rabiaf&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rabia/Documents/Project5&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="OperatorWebAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ericsson.owa.OperatorWebAppApplication" />
+      <module name="OperatorWebApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ericsson.owa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OperatorWebAppApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cafd4cf0-29da-4a4d-8183-aa0adb7efae3" name="Changes" comment="" />
+      <created>1716544058872</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716544058872</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Application properties for the Operator Api">
+      <option name="closed" value="true" />
+      <created>1716548681642</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716548681642</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created Operator Api controllers and endpoints with repo">
+      <option name="closed" value="true" />
+      <created>1716548825877</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716548825878</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated pom.xml">
+      <option name="closed" value="true" />
+      <created>1716548944989</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716548944989</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated pom.xml">
+      <option name="closed" value="true" />
+      <created>1716808704293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716808704293</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated main class annotation">
+      <option name="closed" value="true" />
+      <created>1716808753850</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716808753850</updated>
+    </task>
+    <task id="LOCAL-00006" summary=" Endpoints updated for Rest Controller">
+      <option name="closed" value="true" />
+      <created>1716808834121</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716808834121</updated>
+    </task>
+    <task id="LOCAL-00007" summary=" Endpoints Rest Controller">
+      <option name="closed" value="true" />
+      <created>1716821778545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716821778545</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/rabiaf" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit, Added Operator-Web-App" />
+    <MESSAGE value="Application properties for the Operator Api" />
+    <MESSAGE value="Created Operator Api controllers and endpoints with repo" />
+    <MESSAGE value="Updated pom.xml" />
+    <MESSAGE value="updated main class annotation" />
+    <MESSAGE value=" Endpoints updated for Rest Controller" />
+    <MESSAGE value=" Endpoints Rest Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Endpoints Rest Controller" />
+  </component>
+</project>
