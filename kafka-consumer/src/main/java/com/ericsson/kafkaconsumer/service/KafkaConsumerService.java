@@ -1,5 +1,6 @@
-package com.ericsson.kafkaconsumer;
+package com.ericsson.kafkaconsumer.service;
 
+import com.ericsson.kafkaconsumer.dto.CallFault;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 

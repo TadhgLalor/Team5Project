@@ -1,4 +1,4 @@
-package com.ericsson.kafkaconsumer;
+package com.ericsson.kafkaconsumer.dto;
 
 
 public enum FaultReason {

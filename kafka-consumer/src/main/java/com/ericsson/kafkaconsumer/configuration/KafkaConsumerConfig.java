@@ -1,5 +1,6 @@
-package com.ericsson.kafkaconsumer;
+package com.ericsson.kafkaconsumer.configuration;
 
+import com.ericsson.kafkaconsumer.dto.CallFault;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
