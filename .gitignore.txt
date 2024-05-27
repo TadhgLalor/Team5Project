@@ -5,7 +5,6 @@
 # Copy the next content on the .gitignore_global file:
 
 .DS_Store
-.gitignore.txt
 
 *.class
 
@@ -32,4 +31,4 @@ target/
 *.war
 *.ear
 
-#git rm -rf --cached .
+#git rm -rf --cached .idea
