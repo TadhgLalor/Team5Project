@@ -20,26 +20,26 @@ public class MessageController {
 
     @GetMapping("/send")
     public String sendMessage(@RequestParam("nodeId") int nodeId, @RequestParam("networkId") int networkId,
-                              @RequestParam("networkName") String networkName ,  @RequestParam("callerId")int callerId,
-                              @RequestParam("callerName") String callerName,@RequestParam("faultReason") FaultReason faultReason ) {
-        CallFault message = new CallFault(nodeId, networkId,networkName,callerId, callerName,faultReason);
+                              @RequestParam("networkName") String networkName, @RequestParam("callerId") int callerId,
+                              @RequestParam("callerName") String callerName, @RequestParam("faultReason") FaultReason faultReason) {
+        CallFault message = new CallFault(nodeId, networkId, networkName, callerId, callerName, faultReason);
         System.out.println("Entered URI");
         producerService.sendMessage(message);
         return "Message sent to Kafka topic";
     }
 
     @GetMapping("/sendRandom")
-    public String sendRandomMessage(){
+    public String sendRandomMessage() {
         CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
         producerService.sendMessage(randomMessage);
         return "Random Fault Message sent to Kafka topic";
     }
-
+}
 //    @GetMapping("/printRandom")
 //    public String printRandomFaultMessage(){
 //        CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
 //        System.out.println(randomMessage.getCallerId());
 //        return "Random Fault Message sent to Kafka topic";
 //    }
-}
+
 
