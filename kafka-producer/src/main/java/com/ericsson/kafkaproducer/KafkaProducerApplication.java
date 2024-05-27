@@ -28,10 +28,6 @@ public class KafkaProducerApplication implements ApplicationRunner {
         while (keepRunning) {
             messageController.sendRandomMessage();
             Thread.sleep(5000); // Sleep for 5 seconds before sending the next message
-
-            // Implement a condition to break the loop if needed
-            // For example, you could check for a specific condition or input
-            // keepRunning = checkIfShouldStop();
         }
     }
 }
