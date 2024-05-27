@@ -5,6 +5,7 @@
 # Copy the next content on the .gitignore_global file:
 
 .DS_Store
+.gitignore.txt
 
 *.class
 
