@@ -1,6 +1,7 @@
 package dto;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,10 +11,12 @@ public class CallFault {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "id")
     private Long id;
 
     private Integer nodeId;
     private Integer networkId;
+
     private String networkName;
     private Integer callerId;
     private String callerName;

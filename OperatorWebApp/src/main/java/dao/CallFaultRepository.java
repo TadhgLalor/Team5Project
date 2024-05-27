@@ -9,8 +9,12 @@ import java.util.List;
 
 @Repository
 public interface CallFaultRepository extends JpaRepository<CallFault, Long> {
+
     List<CallFault> findByCallerId(Integer callerId);
+
     List<CallFault> findByNodeId(Integer nodeId);
+
     List<CallFault> findByCallerIdAndFaultTimestampBetween(Integer callerId, LocalDateTime startDate, LocalDateTime endDate);
+
     List<CallFault> findByNodeIdAndFaultTimestampBetween(Integer nodeId, LocalDateTime startDate, LocalDateTime endDate);
 }

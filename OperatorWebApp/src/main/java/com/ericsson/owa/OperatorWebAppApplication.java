@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = {"controllers", "dao","dto"})
-
+@SpringBootApplication(scanBasePackages = {"controllers","dto"})
+@EntityScan( {"dao", "dto"} )
+@EnableJpaRepositories({"dao", "dto"})
 public class OperatorWebAppApplication {
 
     public static void main(String[] args) {
