@@ -1,36 +1,34 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# git config --global core.excludesfile ~/.gitignore_global
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
+# Some common .gitignore configurations: https://gist.github.com/octocat/9257657
+
+# Copy the next content on the .gitignore_global file:
+
+.DS_Store
+
+*.class
+
+bin/
+.settings/
+
+# Eclipse files
 .project
-.settings
-.springBeans
-.sts4-cache
+.classpath
+.metadata/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IntelliJ
+.idea/
 *.iml
 *.ipr
+*.iws
+atlassian-ide-plugin.xml
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Maven files
+target/
 
-### VS Code ###
-.vscode/
+# Package Files #
+*.jar
+*.war
+*.ear
 
-# Ignore the .metadata directory
-.metadata/
+#git rm -rf --cached .idea
