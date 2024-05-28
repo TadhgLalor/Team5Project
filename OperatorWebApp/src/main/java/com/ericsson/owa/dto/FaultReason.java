@@ -1,4 +1,4 @@
-package dto;
+package com.ericsson.owa.dto;
 
 public enum FaultReason {
 

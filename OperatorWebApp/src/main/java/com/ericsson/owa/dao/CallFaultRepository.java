@@ -1,7 +1,7 @@
-package dao;
+package com.ericsson.owa.dao;
 
-import dto.CallFault;
-import dto.FaultReason;
+import com.ericsson.owa.dto.CallFault;
+import com.ericsson.owa.dto.FaultReason;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package service;
+package com.ericsson.owa.service;
 
-import dao.CallFaultRepository;
-import dto.CallFault;
+import com.ericsson.owa.dao.CallFaultRepository;
+import com.ericsson.owa.dto.CallFault;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;

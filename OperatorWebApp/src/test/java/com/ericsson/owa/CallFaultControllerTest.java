@@ -1,14 +1,14 @@
 package controllers;
 
-import dao.CallFaultRepository;
-import dto.CallFault;
-import dto.FaultReason;
+import com.ericsson.owa.controllers.CallFaultController;
+import com.ericsson.owa.dao.CallFaultRepository;
+import com.ericsson.owa.dto.CallFault;
+import com.ericsson.owa.dto.FaultReason;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 

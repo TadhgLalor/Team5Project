@@ -1,4 +1,4 @@
-package dto;
+package com.ericsson.owa.dto;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

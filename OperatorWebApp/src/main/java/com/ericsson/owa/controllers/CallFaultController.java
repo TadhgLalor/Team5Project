@@ -1,8 +1,8 @@
-package controllers;
+package com.ericsson.owa.controllers;
 
-import dao.CallFaultRepository;
-import dto.CallFault;
-import dto.FaultReason;
+import com.ericsson.owa.dao.CallFaultRepository;
+import com.ericsson.owa.dto.CallFault;
+import com.ericsson.owa.dto.FaultReason;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-
 public class CallFaultController {
 
     //@Autowired
