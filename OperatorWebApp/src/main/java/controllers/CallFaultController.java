@@ -20,8 +20,13 @@ import java.util.List;
 
 public class CallFaultController {
 
-    @Autowired
-    private CallFaultRepository repository;
+    //@Autowired
+
+   final CallFaultRepository repository;
+
+    CallFaultController (CallFaultRepository repository){
+        this.repository=repository;
+    }
 
     @GetMapping
     public String handleApiRequest() {
