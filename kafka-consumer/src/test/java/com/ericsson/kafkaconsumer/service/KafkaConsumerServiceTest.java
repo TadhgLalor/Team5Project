@@ -1,7 +1,9 @@
 package com.ericsson.kafkaconsumer.service;
 
-import com.ericsson.kafkaconsumer.dto.CallFault;
-import com.ericsson.kafkaconsumer.dto.FaultReason;
+import com.ericsson.kafkaconsumer.CallFault;
+import com.ericsson.kafkaconsumer.FaultReason;
+import com.ericsson.kafkaconsumer.KafkaConsumerService;
+
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,7 @@
 package com.ericsson.kafkaconsumer.configuration;
 
-import com.ericsson.kafkaconsumer.dto.CallFault;
+import com.ericsson.kafkaconsumer.CallFault;
+import com.ericsson.kafkaconsumer.CallFaultDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
 import org.junit.jupiter.api.BeforeEach;
