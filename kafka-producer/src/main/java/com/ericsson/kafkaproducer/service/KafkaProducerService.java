@@ -10,8 +10,7 @@ public class KafkaProducerService {
 
     private static final String TOPIC = "test_topic";
 
-    @Autowired
-    private KafkaTemplate<String, CallFault> kafkaTemplate;
+    @Autowired KafkaTemplate<String, CallFault> kafkaTemplate;
 
     public void sendMessage(CallFault message) {
         kafkaTemplate.send(TOPIC, message);
