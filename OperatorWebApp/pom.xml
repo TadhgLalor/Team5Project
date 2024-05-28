@@ -8,7 +8,7 @@
         <version>3.3.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ericsson</groupId>
+    <groupId>com.ericsson.owa</groupId>
     <artifactId>OperatorWebApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>OperatorWebApp</name>
@@ -55,12 +55,7 @@
             <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-apache</artifactId>
-            <version>1.1.0</version>
-            <scope>test</scope>
-        </dependency>
+
 
         <!-- <dependency>
              <groupId>mysql</groupId>
@@ -79,10 +74,23 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
+
 
 </project>
