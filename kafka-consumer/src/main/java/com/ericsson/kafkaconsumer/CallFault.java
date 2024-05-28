@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import jakarta.persistence.*;
-import org.aspectj.weaver.ast.Call;
-
+//import jakarta.persistence.*;
+//import org.aspectj.weaver.ast.Call;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
@@ -32,9 +32,9 @@ public class CallFault {
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern ="dd-MM-yyyy HH:mm:ss")
     private LocalDateTime faultTimestamp;
 
-    CallFault(){
-
-    }
+//    CallFault(){
+//
+//    }
 
     public CallFault(@JsonProperty("nodeId") int nodeId, @JsonProperty("networkId") int networkId,
                      @JsonProperty("networkName") String networkName,@JsonProperty("callerId") int callerId,
@@ -49,6 +49,9 @@ public class CallFault {
         this.faultTimestamp=faultTimestamp;
     }
 
+    public CallFault() {
+
+    }
 
 
     public int getNetworkId() {

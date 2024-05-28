@@ -6,9 +6,6 @@ import org.apache.kafka.common.serialization.Deserializer;
 import org.springframework.stereotype.Component;
 
 
-import java.util.Map;
-
-
 @Component
 public class CallFaultDeserializer implements Deserializer<CallFault> {
     private final ObjectMapper objectMapper  = new ObjectMapper();
