@@ -70,5 +70,17 @@ public class CallFaultTest {
         assertEquals(12345, callFault.getCallerId());
         assertEquals("John Doe", callFault.getCallerName());
         assertEquals(FaultReason.NO_NETWORK_CAPACITY, callFault.getFaultReason());
+        
+        String expectedToString = "###########CallFault############{" +
+                "networkId=100" +
+                "NodeID= 1" +
+                "NetworkName= TestNetwork" +
+                "Caller ID= 12345" +
+                "Caller Name= John Doe" +
+                "Fault Reason = NO_NETWORK_CAPACITY" +
+                "Fault Time = 2023-05-27T14:30" +
+                '}';
+
+        assertEquals(expectedToString, callFault.toString());
     }
 }
