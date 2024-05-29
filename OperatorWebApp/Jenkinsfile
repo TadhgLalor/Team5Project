@@ -34,7 +34,7 @@ pipeline {
                 dir('OperatorWebApp') {
                     script {
                         echo 'Running tests...'
-                        sh "${MAVEN_HOME}/bin/mvn clean test"
+                        sh "${MAVEN_HOME}/bin/mvn test"
                     }
                 }
             }
