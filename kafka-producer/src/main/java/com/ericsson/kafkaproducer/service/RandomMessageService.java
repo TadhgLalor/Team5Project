@@ -3,9 +3,7 @@ package com.ericsson.kafkaproducer.service;
 import com.ericsson.kafkaproducer.dto.CallFault;
 import com.ericsson.kafkaproducer.dto.FaultReason;
 import org.springframework.stereotype.Service;
-
 import java.security.SecureRandom;
-import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -36,10 +34,16 @@ public class RandomMessageService {
     }
 
     private String randomNetworkName(int networkId) {
-        return networkId <= 249 ? "Vodafone" :
-                networkId <= 500 ? "Eir" :
-                        networkId <= 750 ? "Virgin Mobile Ireland" :
-                                networkId <= 999 ? "Tesco Mobile Ireland" :
-                                        "Invalid Network ID";
+        if (networkId <= 249) {
+            return "Vodafone";
+        } else if (networkId <= 500) {
+            return "Eir";
+        } else if (networkId <= 750) {
+            return "Virgin Mobile Ireland";
+        } else if (networkId <= 999) {
+            return "Tesco Mobile Ireland";
+        } else {
+            return "Invalid Network ID";
+        }
     }
 }

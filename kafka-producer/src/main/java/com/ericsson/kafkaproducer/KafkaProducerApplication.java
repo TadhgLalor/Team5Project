@@ -1,18 +1,18 @@
 package com.ericsson.kafkaproducer;
 
 import com.ericsson.kafkaproducer.controller.MessageController;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 @SpringBootApplication
 public class KafkaProducerApplication implements ApplicationRunner {
+
+    private static final Logger logger = Logger.getLogger(KafkaProducerApplication.class.getName());
 
     @Autowired
     private MessageController messageController;
@@ -21,12 +21,12 @@ public class KafkaProducerApplication implements ApplicationRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(KafkaProducerApplication.class, args);
-        System.out.println("KafkaProducerApplication running...");
+        logger.info("KafkaProducerApplication running...");
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("Sending random messages on startup...");
+        logger.info("Sending random messages on startup...");
 
         // Create and start threads for each node
         for (int i = 1; i <= NODE_COUNT; i++) {
@@ -49,14 +49,13 @@ public class KafkaProducerApplication implements ApplicationRunner {
 
             while (keepRunning) {
                 try {
-                    System.out.println("NodeId " + nodeId + " sending message...");
+                    logger.info("NodeId " + nodeId + " sending message...");
                     messageController.sendRandomMessage(nodeId);
                     Thread.sleep(5000); // Sleep for 5 seconds before sending the next message
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     keepRunning = false;
                 } catch (Exception e) {
-                  //  e.printStackTrace();
                     keepRunning = false;
                 }
             }
