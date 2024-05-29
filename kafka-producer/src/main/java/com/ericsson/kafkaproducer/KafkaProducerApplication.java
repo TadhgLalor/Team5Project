@@ -7,7 +7,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.logging.Logger;
-import java.util.logging.Level;
 
 @SpringBootApplication
 public class KafkaProducerApplication implements ApplicationRunner {
