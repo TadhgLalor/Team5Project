@@ -6,18 +6,18 @@ services:
 #    command: tail -f /dev/null # This command keeps the container running
 
   # 1
-#  mysql:
-#    image: mysql
-#    container_name: mysql-container
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root # Sets the password for the root user.
-#      MYSQL_DATABASE: call_faults_db # Creates a database with the specified name.
-#      MYSQL_USER: user # Creates a user with the specified name.
-#      MYSQL_PASSWORD: password # Sets the password for the created user.
-#    ports:
-#      - "3306:3306"
-#    volumes:
-#      - mysql-data:/var/lib/mysql
+  mysql:
+    image: mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root # Sets the password for the root user.
+      MYSQL_DATABASE: call_faults_db # Creates a database with the specified name.
+      MYSQL_USER: user # Creates a user with the specified name.
+      MYSQL_PASSWORD: password # Sets the password for the created user.
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
 
   # 2
   zookeeper:
@@ -53,20 +53,25 @@ services:
       - "8081:8081"
 
   # 5
-#  consumer-app:
-#    image: openjdk:11-jdk
-#    container_name: consumer-container
-#    build:
-#      context: ./kafka-consumer
-#      dockerfile: Dockerfile
+  consumer-app:
+    image: openjdk:11-jdk
+    container_name: consumer-container
+    build:
+      context: ./kafka-consumer
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-container:3306/call_faults_db
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
 #    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-container/call_faults_db
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/call_faults_db?autoReconnect=true&useSSL=false
 #      - SPRING_DATASOURCE_USERNAME=user
 #      - SPRING_DATASOURCE_PASSWORD=password
-#    ports:
-#      - "8082:8082"
-#    networks:
-#      - app-network
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+#      - SPRING_JPA_SHOW_SQL=true
+#      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
+    ports:
+      - "8082:8082"
 
   # 6
 #  operator-app:
