@@ -3,34 +3,28 @@ package com.ericsson.kafkaconsumer.service;
 import com.ericsson.kafkaconsumer.CallFault;
 import com.ericsson.kafkaconsumer.FaultReason;
 import com.ericsson.kafkaconsumer.KafkaConsumerService;
-
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.kafka.test.context.EmbeddedKafka;
-import org.springframework.kafka.test.utils.KafkaTestUtils;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.boot.test.mock.mockito.SpyBean;
-
 import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-@EmbeddedKafka(partitions = 1, topics = {"test_topic"})
-//@TestPropertySource(properties = {"spring.kafka.consumer.group-id=group_id"})
 @TestPropertySource(properties = {
         "spring.kafka.consumer.group-id=group_id",
-        "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+        "spring.kafka.bootstrap-servers=localhost:9092"
 })
 public class KafkaConsumerServiceTest {
 
-    @SpyBean
+    @Autowired
     private KafkaConsumerService kafkaConsumerService;
+
+    @MockBean
+    private KafkaConsumerService kafkaConsumerServiceMock;
 
     @Test
     public void testConsume() {
@@ -49,7 +43,7 @@ public class KafkaConsumerServiceTest {
 
         // Verify the consume method was called with the expected argument
         ArgumentCaptor<CallFault> captor = ArgumentCaptor.forClass(CallFault.class);
-        verify(kafkaConsumerService).consume(captor.capture());
+        verify(kafkaConsumerServiceMock).consume(captor.capture());
 
         CallFault consumedMessage = captor.getValue();
         assertEquals(callFault.toString(), consumedMessage.toString());
