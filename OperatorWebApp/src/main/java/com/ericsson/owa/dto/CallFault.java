@@ -25,28 +25,6 @@ public class CallFault {
 
     private LocalDateTime faultTimestamp;
 
- /*   @Column(name = "nodeId")
-    private Integer nodeId;
-
-    @Column(name = "networkId")
-    private Integer networkId;
-
-    @Column(name = "networkName")
-    private String networkName;
-
-    @Column(name = "callerId")
-    private Integer callerId;
-
-    @Column(name = "callerName")
-    private String callerName;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "faultReason")
-    private FaultReason faultReason;
-
-    @Column(name = "faultTimestamp")
-    private LocalDateTime faultTimestamp;*/
-
 
     public Long getId() {
         return id;
