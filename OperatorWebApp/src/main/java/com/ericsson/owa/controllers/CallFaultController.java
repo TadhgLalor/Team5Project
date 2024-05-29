@@ -29,12 +29,12 @@ public class CallFaultController {
 
     @GetMapping
     public String handleApiRequest() {
-        return "API Team5  endpoint accessed successfully!";
+        return "API Team5 endpoint accessed successfully!";
     }
 
     @GetMapping("/api2")
     public String handleApiRequest2() {
-        return "API Team5  endpoint 2 accessed successfully!";
+        return "API Team5 endpoint 2 accessed successfully!";
     }
 
 

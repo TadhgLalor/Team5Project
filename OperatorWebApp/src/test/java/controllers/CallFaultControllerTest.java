@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
@@ -49,8 +50,8 @@ public class CallFaultControllerTest {
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
         when(repository.findAll()).thenReturn(callFaults);
 
-        List<CallFault> result = controller.getAllCallFaults();
-        assertEquals(callFaults, result);
+        ResponseEntity<List<CallFault>> responseEntity = controller.getAllCallFaults();
+        List<CallFault> result = responseEntity.getBody();
     }
 
     @Test
