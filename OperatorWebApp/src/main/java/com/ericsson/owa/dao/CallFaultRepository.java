@@ -4,7 +4,6 @@ import com.ericsson.owa.dto.CallFault;
 import com.ericsson.owa.dto.FaultReason;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.time.LocalDateTime;
 import java.util.List;
 

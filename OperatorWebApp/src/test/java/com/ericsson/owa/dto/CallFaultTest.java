@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 
-public class CallFaultTest {
+class CallFaultTest {
 
     @Test
-    public void testGettersAndSetters() {
+    void testGettersAndSetters() {
         CallFault callFault = new CallFault();
 
         Long id = 1L;

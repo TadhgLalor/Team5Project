@@ -20,7 +20,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class CallFaultControllerTest {
+class CallFaultControllerTest {
 
     @Mock
     private CallFaultRepository repository;
@@ -34,19 +34,19 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testHandleApiRequest() {
+    void testHandleApiRequest() {
         String response = controller.handleApiRequest();
         assertEquals("API Team5 endpoint accessed successfully!", response);
     }
 
     @Test
-    public void testHandleApiRequest2() {
+    void testHandleApiRequest2() {
         String response = controller.handleApiRequest2();
         assertEquals("API Team5 endpoint 2 accessed successfully!", response);
     }
 
     @Test
-    public void testGetAllCallFaults() {
+    void testGetAllCallFaults() {
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
         when(repository.findAll()).thenReturn(callFaults);
 
@@ -55,7 +55,7 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testGetFailuresByCustomer() {
+    void testGetFailuresByCustomer() {
         int callerId = 1;
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
         when(repository.findByCallerId(callerId)).thenReturn(callFaults);
@@ -65,7 +65,7 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testGetFailuresByNode() {
+    void testGetFailuresByNode() {
         int nodeId = 1;
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
         when(repository.findByNodeId(nodeId)).thenReturn(callFaults);
@@ -75,7 +75,7 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testGetTotalFailures() {
+    void testGetTotalFailures() {
         long totalFailures = 5L;
         when(repository.count()).thenReturn(totalFailures);
 
@@ -84,7 +84,7 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testGetFailuresByCustomerAndTimestamp() {
+    void testGetFailuresByCustomerAndTimestamp() {
         int callerId = 1;
         LocalDateTime timestamp = LocalDateTime.now();
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
@@ -95,7 +95,7 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testGetFailuresByNodeAndTimestamp() {
+    void testGetFailuresByNodeAndTimestamp() {
         int nodeId = 1;
         LocalDateTime timestamp = LocalDateTime.now();
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
@@ -106,7 +106,7 @@ public class CallFaultControllerTest {
     }
 
     @Test
-    public void testGetFailuresByFaultReason() {
+    void testGetFailuresByFaultReason() {
         FaultReason faultReason = FaultReason.HANDOVER_FAILED;
         List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
         when(repository.findByFaultReason(faultReason)).thenReturn(callFaults);
