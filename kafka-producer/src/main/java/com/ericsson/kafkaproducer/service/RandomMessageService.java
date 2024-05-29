@@ -34,17 +34,11 @@ public class RandomMessageService {
         return reasons[random.nextInt(reasons.length)];
     }
 
-    private String randomNetworkName(int networkId){
-        if (networkId <=249){
-            return "Vodafone";
-        } else if (networkId <= 500){
-            return "Eir";
-        } else if(networkId <= 750){
-            return "Virgin Mobile Ireland";
-        }else if (networkId <= 999){
-            return "Tesco Mobile Ireland";
-        } else {
-            return "Invalid Network ID";
-        }
+    private String randomNetworkName(int networkId) {
+        return networkId <= 249 ? "Vodafone" :
+                networkId <= 500 ? "Eir" :
+                        networkId <= 750 ? "Virgin Mobile Ireland" :
+                                networkId <= 999 ? "Tesco Mobile Ireland" :
+                                        "Invalid Network ID";
     }
 }
