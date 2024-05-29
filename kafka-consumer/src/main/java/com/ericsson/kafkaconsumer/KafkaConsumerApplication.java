@@ -13,5 +13,4 @@ public class KafkaConsumerApplication {
         SpringApplication.run(KafkaConsumerApplication.class, args);
         System.out.println("KafkaConsumerApplication running...");
     }
-
 }
