@@ -121,6 +121,68 @@ function findNode(nodeId) {
          });
      };
 
+            ///////////////////////////////////////
+           ///////Find by Fault Reason ///////////
+          ///////////////////////////////////////
+     document.getElementById('findFault').addEventListener('click', function() {
+          $('#findFault-model').modal('show');
+      });
+
+     $(document).on('click', '#Cancel3', function() {
+         $('#findFault-model').modal('hide');
+     });
+
+     $(document).on("click", "#Find_but3", function() {
+     	var fault = document.getElementById('userEntry3').value;
+     	findFault(fault);
+     });
+
+
+     function findFault(fault) {
+         console.log("find by fault ajax function called"+fault);
+
+         var findFaultUrl = "http://localhost:8081/api/failures/reason/"+fault
+              $.ajax({
+                  type: 'GET',
+                  url: findFaultUrl,
+                  dataType: "json",
+                  success: function(data) {
+                      if (!data || data.length === 0) {
+                          console.log("No data available");
+                          alertMessage();
+                          $('#alert-message-form h5').remove();
+                          $('#alert-message-modal').modal('show');
+                          $('#warning-message').append('<h5>No Data available</h5>');
+                      } else {
+                      console.log(data)
+                      $('#findFault-model').modal('hide');
+                          let headings = ['Node Id', 'Network Id', 'Network Name', 'Caller Id', 'Caller Name', 'Fault Reason', 'Time'];
+                          let query = 'Find By Fault Reason: ';
+                          let column_list = [
+                              { data: 'nodeId' },
+                              { data: 'networkId' },
+                              { data: 'networkName' },
+                              { data: 'callerId' },
+                              { data: 'callerName' },
+                              { data: 'faultReason' },
+                              { data: 'faultTimestamp' }
+                          ];
+                          renderListOrderColumns(data, headings, query, column_list);
+                      }
+                  },
+                  error: function(xhr, textStatus, errorThrown) {
+                      console.error("AJAX request failed:", textStatus, errorThrown);
+                      console.error("Status:", xhr.status);
+                      console.error("Response:", xhr.responseText);
+                      alertMessage();
+                      $('#alert-message-form h5').remove();
+                      $('#alert-message-modal').modal('show');
+                      $('#warning-message').append('<h5>Connection issue.</h5>');
+                  }
+              });
+          };
+
+
 
 
 
