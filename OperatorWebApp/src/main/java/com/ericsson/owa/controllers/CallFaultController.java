@@ -4,6 +4,8 @@ import com.ericsson.owa.dao.CallFaultRepository;
 import com.ericsson.owa.dto.CallFault;
 import com.ericsson.owa.dto.FaultReason;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,9 +37,17 @@ public class CallFaultController {
         return "API Team5  endpoint 2 accessed successfully!";
     }
 
+
     @GetMapping("/failures")
-    public List<CallFault> getAllCallFaults() {
-        return repository.findAll();
+    public ResponseEntity<List<CallFault>> getAllCallFaults() {
+        List<CallFault> callFaultList = repository.findAll();
+
+        if (callFaultList.isEmpty()) {
+            return ResponseEntity.badRequest().body(null);
+        } else {
+            return ResponseEntity.ok(callFaultList);
+        }
+
     }
 
     @GetMapping("/failures/customer/{callerId}")
