@@ -34,7 +34,7 @@ pipeline {
                 dir('kafka-producer') {
                     script {
                         echo 'Running tests...'
-                        sh "${MAVEN_HOME}/bin/mvn test"
+                        sh "${MAVEN_HOME}/bin/mvn clean test"
                     }
                 }
             }
