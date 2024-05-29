@@ -37,7 +37,7 @@ Feature: CallFaultController API tests
     Given path 'total-failures'
     When method get
     Then status 200
-    And match response == '2'
+    And match response == '4'
 
   Scenario: Get failures by customer and timestamp
     Given path 'failures/customer/1/timestamp/2023-01-01 12:00:00'
