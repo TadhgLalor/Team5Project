@@ -35,4 +35,8 @@ public class MessageController {
         producerService.sendMessage(randomMessage);
         return "Random Fault Message sent to Kafka topic";
     }
+    
+    public void close() {
+    	producerService.close();
+    }
 }
