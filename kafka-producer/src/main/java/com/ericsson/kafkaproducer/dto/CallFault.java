@@ -29,6 +29,10 @@ public class CallFault {
         faultTimestamp=LocalDateTime.now();
     }
 
+    public void setNodeId(int nodeId) {
+        this.nodeId=nodeId;
+    }
+
     public int getNetworkId() {
         return networkId;
     }

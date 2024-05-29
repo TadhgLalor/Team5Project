@@ -29,17 +29,14 @@ public class MessageController {
     }
 
     @GetMapping("/sendRandom")
-    public String sendRandomMessage() {
+    public String sendRandomMessage(int nodeId) {
         CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
+        randomMessage.setNodeId(nodeId);
         producerService.sendMessage(randomMessage);
         return "Random Fault Message sent to Kafka topic";
     }
+    
+    public void close() {
+    	producerService.close();
+    }
 }
-//    @GetMapping("/printRandom")
-//    public String printRandomFaultMessage(){
-//        CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
-//        System.out.println(randomMessage.getCallerId());
-//        return "Random Fault Message sent to Kafka topic";
-//    }
-
-
