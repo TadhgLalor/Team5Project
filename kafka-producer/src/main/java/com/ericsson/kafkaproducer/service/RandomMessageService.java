@@ -16,7 +16,7 @@ public class RandomMessageService {
 
         int nodeId = random.nextInt(5);      //Between 0-999
         int networkId = random.nextInt(1000);
-        String networkName = randomomString();
+        String networkName = randomNetworkName(networkId);
         int callerId = random.nextInt(1000);
         String callerName = randomomString();
         // Random FaultReason enum value
@@ -32,5 +32,13 @@ public class RandomMessageService {
     private FaultReason randomFaultReason() {
         FaultReason[] reasons = FaultReason.values();
         return reasons[random.nextInt(reasons.length)];
+    }
+
+    private String randomNetworkName(int networkId) {
+        return networkId <= 249 ? "Vodafone" :
+                networkId <= 500 ? "Eir" :
+                        networkId <= 750 ? "Virgin Mobile Ireland" :
+                                networkId <= 999 ? "Tesco Mobile Ireland" :
+                                        "Invalid Network ID";
     }
 }
