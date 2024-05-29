@@ -35,12 +35,8 @@ public class MessageController {
         producerService.sendMessage(randomMessage);
         return "Random Fault Message sent to Kafka topic";
     }
+    
+    public void close() {
+    	producerService.close();
+    }
 }
-//    @GetMapping("/printRandom")
-//    public String printRandomFaultMessage(){
-//        CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
-//        System.out.println(randomMessage.getCallerId());
-//        return "Random Fault Message sent to Kafka topic";
-//    }
-
-

@@ -1,6 +1,10 @@
 package com.ericsson.kafkaproducer;
 
 import com.ericsson.kafkaproducer.controller.MessageController;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -52,7 +56,7 @@ public class KafkaProducerApplication implements ApplicationRunner {
                     Thread.currentThread().interrupt();
                     keepRunning = false;
                 } catch (Exception e) {
-                    e.printStackTrace();
+                  //  e.printStackTrace();
                     keepRunning = false;
                 }
             }
