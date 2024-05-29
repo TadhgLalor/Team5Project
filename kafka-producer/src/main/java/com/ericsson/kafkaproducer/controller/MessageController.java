@@ -36,11 +36,3 @@ public class MessageController {
         return "Random Fault Message sent to Kafka topic";
     }
 }
-//    @GetMapping("/printRandom")
-//    public String printRandomFaultMessage(){
-//        CallFault randomMessage = randomMessageService.generateRandomFaultMessage();
-//        System.out.println(randomMessage.getCallerId());
-//        return "Random Fault Message sent to Kafka topic";
-//    }
-
-
