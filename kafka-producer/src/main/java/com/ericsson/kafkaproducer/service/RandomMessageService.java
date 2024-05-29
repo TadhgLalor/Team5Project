@@ -32,7 +32,7 @@ public class RandomMessageService {
 
     private FaultReason randomFaultReason() {
         FaultReason[] reasons = FaultReason.values();
-        return reasons[random.nextInt(reasons.length)];
+        return reasons[secureRandom.nextInt(reasons.length)];
     }
 
     private String randomNetworkName(int networkId) {
