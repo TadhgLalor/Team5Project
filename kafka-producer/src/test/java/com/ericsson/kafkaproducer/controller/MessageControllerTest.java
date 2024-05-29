@@ -48,20 +48,21 @@ class MessageControllerTest {
         assertEquals("Message sent to Kafka topic", result, "Response should be as expected");
         verify(producerService, times(1)).sendMessage(any(CallFault.class));
     }
-    
+   
     @Test
-    void sendRandomMessage() {
+    void sendRandom() {
         // Arrange
-        CallFault mockCallFault = new CallFault(123, 456, "TestNetwork", 789, "TestCaller", FaultReason.HANDOVER_FAILED);
-        when(randomMessageService.generateRandomFaultMessage()).thenReturn(mockCallFault);
+        int nodeId = 123;
+        CallFault randomMessage = new CallFault(nodeId, 456, "Random Network", 789, "Random Caller", FaultReason.NO_NETWORK_CAPACITY);
+        when(randomMessageService.generateRandomFaultMessage()).thenReturn(randomMessage);
 
         // Act
-        messageController.sendRandomMessage();
+        String result = messageController.sendRandomMessage(nodeId);
 
         // Assert
+        assertEquals("Random Fault Message sent to Kafka topic", result, "Response should be as expected");
         verify(randomMessageService, times(1)).generateRandomFaultMessage();
-        verify(producerService, times(1)).sendMessage(mockCallFault);
+        verify(producerService, times(1)).sendMessage(randomMessage);
+        assertEquals(nodeId, randomMessage.getNodeId(), "Node ID should be set correctly");
     }
-
-
 }
