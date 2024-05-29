@@ -68,7 +68,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 //@Import(TestKafkaProducerConfig.class)
-public class KafkaProducerConfigTest {
+class KafkaProducerConfigTest {
 
     @Autowired
     private ProducerFactory<String, CallFault> producerFactory;
