@@ -22,7 +22,11 @@ import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @EmbeddedKafka(partitions = 1, topics = {"test_topic"})
-@TestPropertySource(properties = {"spring.kafka.consumer.group-id=group_id"})
+//@TestPropertySource(properties = {"spring.kafka.consumer.group-id=group_id"})
+@TestPropertySource(properties = {
+        "spring.kafka.consumer.group-id=group_id",
+        "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+})
 public class KafkaConsumerServiceTest {
 
     @SpyBean
