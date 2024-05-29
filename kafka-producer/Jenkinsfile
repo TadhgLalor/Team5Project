@@ -46,7 +46,7 @@ pipeline {
                     dir('kafka-producer') {
                         script {
                             echo 'Running SonarQube analysis...'
-                            sh "${MAVEN_HOME}/bin/mvn sonar:sonar"
+                            sh "${MAVEN_HOME}/bin/mvn sonar:sonar -Dsonar.inclusions=src/main/java/**"
                         }
                     }
                 }
