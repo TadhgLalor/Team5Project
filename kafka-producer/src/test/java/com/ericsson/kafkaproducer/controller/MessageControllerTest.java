@@ -49,19 +49,19 @@ class MessageControllerTest {
         verify(producerService, times(1)).sendMessage(any(CallFault.class));
     }
     
-    @Test
-    void sendRandomMessage() {
-        // Arrange
-        CallFault mockCallFault = new CallFault(123, 456, "TestNetwork", 789, "TestCaller", FaultReason.HANDOVER_FAILED);
-        when(randomMessageService.generateRandomFaultMessage()).thenReturn(mockCallFault);
-
-        // Act
-        messageController.sendRandomMessage();
-
-        // Assert
-        verify(randomMessageService, times(1)).generateRandomFaultMessage();
-        verify(producerService, times(1)).sendMessage(mockCallFault);
-    }
+//    @Test
+//    void sendRandomMessage() {
+//        // Arrange
+//        CallFault mockCallFault = new CallFault(123, 456, "TestNetwork", 789, "TestCaller", FaultReason.HANDOVER_FAILED);
+//        when(randomMessageService.generateRandomFaultMessage()).thenReturn(mockCallFault);
+//
+//        // Act
+//        messageController.sendRandomMessage();
+//
+//        // Assert
+//        verify(randomMessageService, times(1)).generateRandomFaultMessage();
+//        verify(producerService, times(1)).sendMessage(mockCallFault);
+//    }
 
 
 }

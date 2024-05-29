@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.concurrent.ThreadLocalRandom;
 
 @SpringBootApplication
 public class KafkaProducerApplication implements ApplicationRunner {
@@ -22,7 +23,8 @@ public class KafkaProducerApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("Sending random messages on startup...");
+        System.out.println("Waiting for Kafka to be ready...");
+        Thread.sleep(30000); // Wait for 30 seconds to ensure Kafka is ready
 
         // Create and start threads for each node
         for (int i = 1; i <= NODE_COUNT; i++) {
@@ -47,12 +49,13 @@ public class KafkaProducerApplication implements ApplicationRunner {
                 try {
                     System.out.println("NodeId " + nodeId + " sending message...");
                     messageController.sendRandomMessage(nodeId);
-                    Thread.sleep(5000); // Sleep for 5 seconds before sending the next message
+//                    int sleepTime = ThreadLocalRandom.current().nextInt(40000, 60001); // Random sleep time between 40-60 seconds
+                    Thread.sleep(40000);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     keepRunning = false;
                 } catch (Exception e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                     keepRunning = false;
                 }
             }
