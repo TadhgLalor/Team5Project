@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CallFaultTest {
+class CallFaultTest {
 
     @Test
-    public void testCallFaultConstructorAndGetters() {
+    void testCallFaultConstructorAndGetters() {
         int nodeId = 1;
         int networkId = 100;
         String networkName = "TestNetwork";
@@ -34,7 +34,7 @@ public class CallFaultTest {
     }
 
     @Test
-    public void testCallFaultJsonSerialization() throws Exception {
+    void testCallFaultJsonSerialization() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -57,7 +57,7 @@ public class CallFaultTest {
     }
 
     @Test
-    public void testCallFaultJsonDeserialization() throws Exception {
+    void testCallFaultJsonDeserialization() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);

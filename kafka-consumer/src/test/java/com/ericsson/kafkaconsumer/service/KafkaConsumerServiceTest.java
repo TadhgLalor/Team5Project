@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
         "spring.kafka.consumer.group-id=group_id",
         "spring.kafka.bootstrap-servers=localhost:9092"
 })
-public class KafkaConsumerServiceTest {
+class KafkaConsumerServiceTest {
 
     @Autowired
     private KafkaConsumerService kafkaConsumerService;
@@ -27,7 +27,7 @@ public class KafkaConsumerServiceTest {
     private KafkaConsumerService kafkaConsumerServiceMock;
 
     @Test
-    public void testConsume() {
+    void testConsume() {
         int nodeId = 1;
         int networkId = 100;
         String networkName = "TestNetwork";

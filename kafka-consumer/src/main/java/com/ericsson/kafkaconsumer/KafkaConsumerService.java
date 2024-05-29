@@ -1,14 +1,13 @@
 package com.ericsson.kafkaconsumer;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
+import java.util.logging.Logger;
 
 
 @Service
 public class KafkaConsumerService {
-
+    private static final Logger logger = Logger.getLogger(KafkaConsumerApplication.class.getName());
 
     CallFaultRepository callFaultRepository;
 
@@ -18,7 +17,7 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = "test_topic", groupId = "group_id")
     public void consume(CallFault message) {
-        System.out.println("Consumed message: " + message.toString());
+        logger.info("Consumed message: " + message.toString());
        callFaultRepository.save(message);
     }
 }

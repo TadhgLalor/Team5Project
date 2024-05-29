@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CallFaultDeserializerTest {
+class CallFaultDeserializerTest {
 
     private CallFaultDeserializer deserializer;
     private ObjectMapper objectMapper;
@@ -36,7 +36,7 @@ public class CallFaultDeserializerTest {
 //    }
 
     @Test
-    public void testDeserializeNullData() {
+    void testDeserializeNullData() {
         // Act
         CallFault result = deserializer.deserialize("some-topic", null);
 
@@ -45,7 +45,7 @@ public class CallFaultDeserializerTest {
     }
 
     @Test
-    public void testDeserializeInvalidData() {
+    void testDeserializeInvalidData() {
         // Arrange
         byte[] data = "invalid data".getBytes();
 
