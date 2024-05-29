@@ -1,0 +1,76 @@
+pipeline {
+    agent any
+
+    environment {
+        MAVEN_HOME = '/usr/local/opt/maven'
+        SONARQUBE_ENV = 'SonarQube'  // SonarQube server in Jenkins settings
+    }
+
+    stages {
+        stage('Clean') {
+            steps {
+                dir('kafka-consumer') {
+                    script {
+                        echo 'Cleaning the workspace...'
+                        sh "${MAVEN_HOME}/bin/mvn clean"
+                    }
+                }
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                dir('kafka-consumer') {
+                    script {
+                        echo 'Compiling the source code...'
+                        sh "${MAVEN_HOME}/bin/mvn compile"
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('kafka-consumer') {
+                    script {
+                        echo 'Running tests...'
+                        sh "${MAVEN_HOME}/bin/mvn test"
+                    }
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {  // Use the SonarQube environment
+                    dir('kafka-consumer') {
+                        script {
+                            echo 'Running SonarQube analysis...'
+                            sh "${MAVEN_HOME}/bin/mvn sonar:sonar -Dsonar.inclusions=src/main/java/**"
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('kafka-consumer') {
+                    script {
+                        echo 'Packaging the application...'
+                        sh "${MAVEN_HOME}/bin/mvn package"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                echo 'Cleaning up the workspace...'
+                deleteDir()
+            }
+        }
+    }
+}
