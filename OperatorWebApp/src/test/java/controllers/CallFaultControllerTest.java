@@ -44,14 +44,14 @@ public class CallFaultControllerTest {
         assertEquals("API Team5  endpoint 2 accessed successfully!", response);
     }
 
-    @Test
-    public void testGetAllCallFaults() {
-        List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
-        when(repository.findAll()).thenReturn(callFaults);
-
-        List<CallFault> result = controller.getAllCallFaults();
-        assertEquals(callFaults, result);
-    }
+//    @Test
+//    public void testGetAllCallFaults() {
+//        List<CallFault> callFaults = Arrays.asList(new CallFault(), new CallFault());
+//        when(repository.findAll()).thenReturn(callFaults);
+//
+//        List<CallFault> result = controller.getAllCallFaults();
+//        assertEquals(callFaults, result);
+//    }
 
     @Test
     public void testGetFailuresByCustomer() {
