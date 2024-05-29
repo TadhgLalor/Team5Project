@@ -27,17 +27,6 @@ public class CallFaultController {
         this.repository=repository;
     }
 
-    @GetMapping
-    public String handleApiRequest() {
-        return "API Team5  endpoint accessed successfully!";
-    }
-
-    @GetMapping("/api2")
-    public String handleApiRequest2() {
-        return "API Team5  endpoint 2 accessed successfully!";
-    }
-
-
     @GetMapping("/failures")
     public ResponseEntity<List<CallFault>> getAllCallFaults() {
         List<CallFault> callFaultList = repository.findAll();

@@ -15,23 +15,12 @@ window.addEventListener('DOMContentLoaded', event => {
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
     }
-
 });
-
-
- function appendImage(imageSrc) {
-     var img = document.createElement('img');
-     img.src = imageSrc;  // Ensure the src attribute is set
-     img.alt = 'Appended image';
-     img.width = 200;
-     var div = document.getElementById('addHere');
-     div.innerHTML = ''; // Clear the content of the div
-     div.appendChild(img);
- }
 
  document.getElementById('findAll').addEventListener('click', function() {
      findAll();
  });
+
 
  /////////////////////////////////////////
  // Query for Ajax front to backend points //
