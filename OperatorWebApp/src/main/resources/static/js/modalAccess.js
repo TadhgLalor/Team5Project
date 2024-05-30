@@ -274,6 +274,7 @@ function findNode(nodeId) {
                   success: function(data) {
                       if (!data || data.length === 0) {
                           console.log("No data available");
+                          $('#CallerTimeFind').modal('hide');
                           alertMessage();
                           $('#alert-message-form h5').remove();
                           $('#alert-message-modal').modal('show');
@@ -299,6 +300,7 @@ function findNode(nodeId) {
                       console.error("AJAX request failed:", textStatus, errorThrown);
                       console.error("Status:", xhr.status);
                       console.error("Response:", xhr.responseText);
+                      $('#CallerTimeFind').modal('hide');
                       alertMessage();
                       $('#alert-message-form h5').remove();
                       $('#alert-message-modal').modal('show');

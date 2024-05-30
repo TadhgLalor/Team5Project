@@ -121,17 +121,19 @@ renderListOrderColumns = function(list, headings, query, column_list) {
 
  // Alert message box
  alertMessage = function() {
- 	var htmlStr = '<div class="modal fade" id="alert-message-modal">';
- 	htmlStr += '<div class="modal-dialog modal-dialog-centered">';
- 	htmlStr += '<div class="modal-content">';
- 	htmlStr += '<div class="modal-header">';
- 	htmlStr += '<form id="alert-message-form">';
- 	htmlStr += '<h4 class="modal-title text-danger">Warning!!</h4>';
- 	htmlStr += '<div class="d-flex modal-body justify-content-center" id="warning-message"></div></form>';
- 	htmlStr += '<button type="button" class="close closeAlertMessageButton" data-dismiss="modal">&times;</button></div>';
- 	htmlStr += '<div class="modal-footer"><button type="button" class="btn btn-danger closeAlertMessageButton" data-dismiss="modal">Close</button></div>';
- 	htmlStr += '</div></div></div>';
- 	$('#theBody').append(htmlStr);
+  	var htmlStr = '<div class="modal fade" id="alert-message-modal">';
+  	htmlStr += '<div class="modal-dialog modal-dialog-centered">';
+  	htmlStr += '<div class="modal-content">';
+  	htmlStr += '<div class="modal-header">';
+  	htmlStr += '<form id="alert-message-form">';
+  	htmlStr += '<h4 class="modal-title text-danger">Warning!!</h4>';
+  	htmlStr += '<div class="d-flex modal-body justify-content-center" id="warning-message">';
+  	htmlStr += '<p>Invalid input, please try again!!!</p>';  // Added line
+  	htmlStr += '</div></form>';
+  	htmlStr += '<button type="button" class="close closeAlertMessageButton" data-dismiss="modal">&times;</button></div>';
+  	htmlStr += '<div class="modal-footer"><button type="button" class="btn btn-danger closeAlertMessageButton" data-dismiss="modal">Close</button></div>';
+  	htmlStr += '</div></div></div>';
+  	$('#theBody').append(htmlStr);
  };
 
 

@@ -87,11 +87,16 @@ public class CallFaultController {
 
 
     @GetMapping("/failures/node/{nodeId}/timestamp/start/{startTime}/end/{endTime}")
-    public List<CallFault> getFailuresByNodeAndTimeRange(
+    public ResponseEntity<List<CallFault>> getFailuresByNodeAndTimeRange(
             @PathVariable Integer nodeId,
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime,
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endTime) {
-        return repository.findByNodeIdAndFaultTimestampBetween(nodeId, startTime, endTime);
+        List<CallFault> list= repository.findByNodeIdAndFaultTimestampBetween(nodeId, startTime, endTime);
+        if (list.isEmpty()) {
+            return ResponseEntity.badRequest().body(null);
+        } else {
+            return ResponseEntity.ok(list);
+        }
     }
 }
 
