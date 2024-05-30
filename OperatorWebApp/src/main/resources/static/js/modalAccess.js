@@ -260,11 +260,11 @@ function findNode(nodeId) {
      	var IDFindND2 = document.getElementById('userEntryCallerFD').value;
      	var startND2= document.getElementById('start_datetimeFcaller').value;
      	var endND2= document.getElementById('end_datetimeFcaller').value;
-     	findByNodeNDateTime(IDFindND2,startND2,endND2);
+     	findByCallerIDDateTime(IDFindND2,startND2,endND2);
      });
 
 
-     function findByNodeNDateTime(IDFindND2,startND2,endND2) {
+     function findByCallerIDDateTime(IDFindND2,startND2,endND2) {
 
          var findFaultUrl = "http://localhost:8081/api/failures/customer/"+IDFindND2+"/timestamp/start/"+startND2+"/end/"+endND2
               $.ajax({
