@@ -73,7 +73,23 @@ public class CallFaultController {
         return repository.findByFaultReason(faultReason);
     }
 
+    
+    //New Ones
+    @GetMapping("/failures/customer/{callerId}/timestamp/start/{startTime}/end/{endTime}")
+    public List<CallFault> getFailuresByCustomerAndTimeRange(
+        @PathVariable Integer callerId,
+        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
+        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
+        return repository.findByCallerIdAndFaultTimestampBetween(callerId, startTime, endTime);
+    }
 
+    @GetMapping("/failures/node/{nodeId}/timestamp/start/{startTime}/end/{endTime}")
+    public List<CallFault> getFailuresByNodeAndTimeRange(
+        @PathVariable Integer nodeId,
+        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
+        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
+        return repository.findByNodeIdAndFaultTimestampBetween(nodeId, startTime, endTime);
+    }
 }
 
 
