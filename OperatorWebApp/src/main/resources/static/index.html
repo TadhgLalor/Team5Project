@@ -153,14 +153,12 @@
 	        <div class="modal-content">
 	            <div class="modal-header">
 	                <!-- <h5 class="modal-title" id="alertMessageModalLabel">Total Call Failures</h5> -->
-	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
 	                    <span aria-hidden="true">&times;</span>
 	                </button>
 	            </div>
 	            <div class="modal-body" id="information-message"></div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	            </div>
+	            
 	        </div>
 	    </div>
 	</div>
@@ -282,35 +280,52 @@
 <!-- Custom JS for Total Call Failures -->
 <script>
     function fetchTotalFailures() {
-    var totalFailuresUrl = "http://localhost:8081/api/total-failures";
-    $.ajax({
-        type: 'GET',
-        url: totalFailuresUrl,
-        dataType: "json",
-        success: function(data) {
-            if (data === null || data === undefined) {
-                console.log("No data available");
-                $('#information-message').empty().append('<h5>No Data available</h5>');
-                $('#alert-message-modal').modal('show');
-            } else {
-                console.log(data);
-                $('#information-message').empty().append('<h5>Total Call Failures: ' + data + '</h5>');
+        var totalFailuresUrl = "http://localhost:8081/api/total-failures";
+        $.ajax({
+            type: 'GET',
+            url: totalFailuresUrl,
+            dataType: "json",
+            success: function(data) {
+                if (data === null || data === undefined) {
+                    console.log("No data available");
+                    $('#information-message').empty().append('<h5>No Data available</h5>');
+                    $('#alert-message-modal').modal('show');
+                } else {
+                    console.log(data);
+                    $('#information-message').empty().append('<h5>Total Call Failures: ' + data + '</h5>');
+                    $('#alert-message-modal').modal('show');
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.error("AJAX request failed:", textStatus, errorThrown);
+                console.error("Status:", xhr.status);
+                console.error("Response:", xhr.responseText);
+                $('#information-message').empty().append('<h5>Connection issue.</h5>');
                 $('#alert-message-modal').modal('show');
             }
-        },
-        error: function(xhr, textStatus, errorThrown) {
-            console.error("AJAX request failed:", textStatus, errorThrown);
-            console.error("Status:", xhr.status);
-            console.error("Response:", xhr.responseText);
-            $('#information-message').empty().append('<h5>Connection issue.</h5>');
-            $('#alert-message-modal').modal('show');
-        }
-    });
-}
+        });
+    }
 
-$(document).ready(function() {
-    $('#fetchFailuresButton').on('click', fetchTotalFailures);
-});
+    $(document).ready(function() {
+        $('#fetchFailuresButton').on('click', fetchTotalFailures);
+        
+        // Add event listener to clear the modal content when it is hidden
+        $('#alert-message-modal').on('hidden.bs.modal', function () {
+            $('#information-message').empty();
+        });
+    });
 </script>
+<script>
+	$(document).ready(function(){
+    $('.close').on('click', function(){
+        $('#alert-message-modal').modal('hide');
+    });
+ 
+    $('.modal-close-button').on('click', function(){
+        $('#alert-message-modal').modal('hide');
+    });
+});
+	</script>
+
 </body>
 </html>
