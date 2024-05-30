@@ -27,10 +27,7 @@ function findOrder(callerId) {
              success: function(data) {
                  if (!data || data.length === 0) {
                      console.log("No data available");
-                     alertMessage();
-                     $('#alert-message-form h5').remove();
-                     $('#alert-message-modal').modal('show');
-                     $('#warning-message').append('<h5>No Data available</h5>');
+                     alert("Invalid input, please try again!!!");
                  } else {
                  console.log(data)
                  $('#findorder-model').modal('hide');
@@ -52,10 +49,7 @@ function findOrder(callerId) {
                  console.error("AJAX request failed:", textStatus, errorThrown);
                  console.error("Status:", xhr.status);
                  console.error("Response:", xhr.responseText);
-                 alertMessage();
-                 $('#alert-message-form h5').remove();
-                 $('#alert-message-modal').modal('show');
-                 $('#warning-message').append('<h5>Connection issue.</h5>');
+                 alert("Invalid input, please try again!!!");
              }
          });
      };
@@ -88,10 +82,7 @@ function findNode(nodeId) {
              success: function(data) {
                  if (!data || data.length === 0) {
                      console.log("No data available");
-                     alertMessage();
-                     $('#alert-message-form h5').remove();
-                     $('#alert-message-modal').modal('show');
-                     $('#warning-message').append('<h5>No Data available</h5>');
+                     alert("Invalid input, please try again!!!");
                  } else {
                  console.log(data)
                  $('#findNode-model').modal('hide');
@@ -113,10 +104,7 @@ function findNode(nodeId) {
                  console.error("AJAX request failed:", textStatus, errorThrown);
                  console.error("Status:", xhr.status);
                  console.error("Response:", xhr.responseText);
-                 alertMessage();
-                 $('#alert-message-form h5').remove();
-                 $('#alert-message-modal').modal('show');
-                 $('#warning-message').append('<h5>Connection issue.</h5>');
+                 alert("Invalid input, please try again!!!");
              }
          });
      };
@@ -149,10 +137,7 @@ function findNode(nodeId) {
                   success: function(data) {
                       if (!data || data.length === 0) {
                           console.log("No data available");
-                          alertMessage();
-                          $('#alert-message-form h5').remove();
-                          $('#alert-message-modal').modal('show');
-                          $('#warning-message').append('<h5>No Data available</h5>');
+                          alert("Invalid input, please try again!!!");
                       } else {
                       console.log(data)
                       $('#findFault-model').modal('hide');
@@ -174,10 +159,7 @@ function findNode(nodeId) {
                       console.error("AJAX request failed:", textStatus, errorThrown);
                       console.error("Status:", xhr.status);
                       console.error("Response:", xhr.responseText);
-                      alertMessage();
-                      $('#alert-message-form h5').remove();
-                      $('#alert-message-modal').modal('show');
-                      $('#warning-message').append('<h5>Connection issue.</h5>');
+                      alert("Invalid input, please try again!!!");
                   }
               });
           };
@@ -211,15 +193,13 @@ function findNode(nodeId) {
                   success: function(data) {
                       if (!data || data.length === 0) {
                           console.log("No data available");
-                          alertMessage();
-                          $('#alert-message-form h5').remove();
-                          $('#alert-message-modal').modal('show');
-                          $('#warning-message').append('<h5>No Data available</h5>');
+                          alert("Invalid input, please try again!!!");
                       } else {
                       console.log(data)
                       $('#findFault-model').modal('hide');
                           let headings = ['Node Id', 'Network Id', 'Network Name', 'Caller Id', 'Caller Name', 'Fault Reason', 'Time'];
-                          let query = 'Find By Node & Time Period: ';
+                          let counter2 = data.length
+                          let query = 'Find By Node & Time Period: Count ='+counter2;
                           let column_list = [
                               { data: 'nodeId' },
                               { data: 'networkId' },
@@ -236,10 +216,7 @@ function findNode(nodeId) {
                       console.error("AJAX request failed:", textStatus, errorThrown);
                       console.error("Status:", xhr.status);
                       console.error("Response:", xhr.responseText);
-                      alertMessage();
-                      $('#alert-message-form h5').remove();
-                      $('#alert-message-modal').modal('show');
-                      $('#warning-message').append('<h5>Connection issue.</h5>');
+                      alert("Invalid input, please try again!!!");
                   }
               });
           };
@@ -275,15 +252,13 @@ function findNode(nodeId) {
                       if (!data || data.length === 0) {
                           console.log("No data available");
                           $('#CallerTimeFind').modal('hide');
-                          alertMessage();
-                          $('#alert-message-form h5').remove();
-                          $('#alert-message-modal').modal('show');
-                          $('#warning-message').append('<h5>No Data available</h5>');
+                          alert("Invalid input, please try again!!!");
                       } else {
                       console.log(data)
                       $('#findFault-model').modal('hide');
                           let headings = ['Node Id', 'Network Id', 'Network Name', 'Caller Id', 'Caller Name', 'Fault Reason', 'Time'];
-                          let query = 'Find By Caller ID & Time Period: ';
+                          let counter = data.length
+                          let query = 'Find By Caller ID & Time Period: Count ='+counter;
                           let column_list = [
                               { data: 'nodeId' },
                               { data: 'networkId' },
@@ -301,10 +276,7 @@ function findNode(nodeId) {
                       console.error("Status:", xhr.status);
                       console.error("Response:", xhr.responseText);
                       $('#CallerTimeFind').modal('hide');
-                      alertMessage();
-                      $('#alert-message-form h5').remove();
-                      $('#alert-message-modal').modal('show');
-                      $('#warning-message').append('<h5>Connection issue.</h5>');
+                      alert("Invalid input, please try again!!!");
                   }
               });
           };

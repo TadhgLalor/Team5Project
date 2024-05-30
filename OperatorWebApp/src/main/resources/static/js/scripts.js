@@ -34,10 +34,7 @@ window.addEventListener('DOMContentLoaded', event => {
          success: function(data) {
              if (!data || data.length === 0) {
                  console.log("No data available");
-                 alertMessage();
-                 $('#alert-message-form h5').remove();
-                 $('#alert-message-modal').modal('show');
-                 $('#warning-message').append('<h5>No Data available</h5>');
+                 alert("Invalid input, please try again!!!");
              } else {
              console.log(data)
                  let headings = ['Node Id', 'Network Id', 'Network Name', 'Caller Id', 'Caller Name', 'Fault Reason', 'Time'];
@@ -58,10 +55,7 @@ window.addEventListener('DOMContentLoaded', event => {
              console.error("AJAX request failed:", textStatus, errorThrown);
              console.error("Status:", xhr.status);
              console.error("Response:", xhr.responseText);
-             alertMessage();
-             $('#alert-message-form h5').remove();
-             $('#alert-message-modal').modal('show');
-             $('#warning-message').append('<h5>Connection issue.</h5>');
+             alert("Invalid input, please try again!!!");
          }
      });
  };
