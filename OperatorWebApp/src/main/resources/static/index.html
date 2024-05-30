@@ -26,13 +26,14 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+        <div class="sidebar-heading border-bottom bg-light">Team Nexus</div>
         <div class="list-group list-group-flush">
             <button id="findId">Find By Caller Id</button>
             <button id="findNode">Find by Node Id</button>
             <button id="findAll">Find All</button>
             <button id="findFault">Find By Fault</button>
-            <button id="nodeFD">Find By Node & Date</button>
+            <button id="nodeFD">Find By Node ID & Date</button>
+            <button id="callerIDFD">Find By Caller ID & Date</button>
             <button id="fetchFailuresButton">Fetch Total Failures</button>
         </div>
     </div>
@@ -42,6 +43,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
                 <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                <h3>Mobile Phone Call Fault Analysis</h3>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
@@ -229,6 +231,60 @@
         </div>
     </div>
     <!-- Find data of Node Between Timestamps-->
+	
+<!-- Find data of Caller Between Timestamps-->
+<div class="modal" id="CallerTimeFind" tabindex="-1" role="dialog" aria-labelledby="CallerTimeFind"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #2F4F4F; ">
+                <div class="modal-header flex-column">
+                    <img class="mx-auto" src="assets/ericssonLogo.png" height="100px" width="100px"
+                         alt="Ericsson Logo" />
+                </div>
+
+                <div class="modal-body mx-auto">
+                    <label for="userentry">Caller ID:</label>
+                    <div class="btn-group" role="group">
+                        <input type="text" id="userEntryCallerFD" name="userentry" />
+                        <div class="dropdown-menu" id="ModeldropdownMenuFD" style="max-height: 200px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+
+                <div class="modal-body mx-auto">
+                    <label for="start_datetimeFcaller">Start Date and Time:</label>
+                    <input type="datetime-local" id="start_datetimeFcaller" name="start_datetimeF">
+
+                    <label for="end_datetimeFcaller">End Date and Time:</label>
+                    <input type="datetime-local" id="end_datetimeFcaller" name="end_datetimeF">
+
+                    <script>
+                        startDatetimeInput = document.getElementById('start_datetimecaller');
+                        endDatetimeInput = document.getElementById('end_datetimecaller');
+
+                        startDatetimeInput.addEventListener('change', function () {
+                            endDatetimeInput.min = this.value;
+                            if (endDatetimeInput.value < this.value) {
+                                endDatetimeInput.value = this.value;
+                            }
+                        });
+
+                        endDatetimeInput.addEventListener('change', function () {
+                            if (this.value < startDatetimeInput.value) {
+                                endDatetimeInput.value = startDatetimeInput.value;
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary mx-2" data-dismiss="modal" id="cancelcaller">Cancel</button>
+                    <button type="button" class="btn btn-primary mx-2" data-dismiss="modal"
+                            id="SubmitQueryFcaller">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Find data of Caller Between Timestamps-->
+
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -268,6 +324,5 @@ $(document).ready(function() {
     $('#fetchFailuresButton').on('click', fetchTotalFailures);
 });
 </script>
-
 </body>
 </html>

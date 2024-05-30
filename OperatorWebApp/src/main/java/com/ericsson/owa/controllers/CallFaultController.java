@@ -80,8 +80,8 @@ public class CallFaultController {
     @GetMapping("/failures/customer/{callerId}/timestamp/start/{startTime}/end/{endTime}")
     public List<CallFault> getFailuresByCustomerAndTimeRange(
         @PathVariable Integer callerId,
-        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime,
+        @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endTime) {
         return repository.findByCallerIdAndFaultTimestampBetween(callerId, startTime, endTime);
     }
 

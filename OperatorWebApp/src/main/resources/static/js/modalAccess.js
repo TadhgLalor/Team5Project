@@ -245,5 +245,66 @@ function findNode(nodeId) {
           };
 
 
+  ///////////////////////////////////////
+           ///////Find By Caller ID & Date/Time ///////
+          ///////////////////////////////////////
+     document.getElementById('callerIDFD').addEventListener('click', function() {
+          $('#CallerTimeFind').modal('show');
+      });
+
+     $(document).on('click', '#cancelcaller', function() {
+         $('#CallerTimeFind').modal('hide');
+     });
+
+     $(document).on("click", "#SubmitQueryFcaller", function() {
+     	var IDFindND2 = document.getElementById('userEntryCallerFD').value;
+     	var startND2= document.getElementById('start_datetimeFcaller').value;
+     	var endND2= document.getElementById('end_datetimeFcaller').value;
+     	findByNodeNDateTime(IDFindND2,startND2,endND2);
+     });
+
+
+     function findByNodeNDateTime(IDFindND2,startND2,endND2) {
+
+         var findFaultUrl = "http://localhost:8081/api/failures/customer/"+IDFindND2+"/timestamp/start/"+startND2+"/end/"+endND2
+              $.ajax({
+                  type: 'GET',
+                  url: findFaultUrl,
+                  dataType: "json",
+                  success: function(data) {
+                      if (!data || data.length === 0) {
+                          console.log("No data available");
+                          alertMessage();
+                          $('#alert-message-form h5').remove();
+                          $('#alert-message-modal').modal('show');
+                          $('#warning-message').append('<h5>No Data available</h5>');
+                      } else {
+                      console.log(data)
+                      $('#findFault-model').modal('hide');
+                          let headings = ['Node Id', 'Network Id', 'Network Name', 'Caller Id', 'Caller Name', 'Fault Reason', 'Time'];
+                          let query = 'Find By Caller ID & Time Period: ';
+                          let column_list = [
+                              { data: 'nodeId' },
+                              { data: 'networkId' },
+                              { data: 'networkName' },
+                              { data: 'callerId' },
+                              { data: 'callerName' },
+                              { data: 'faultReason' },
+                              { data: 'faultTimestamp' }
+                          ];
+                          renderListOrderColumns(data, headings, query, column_list);
+                      }
+                  },
+                  error: function(xhr, textStatus, errorThrown) {
+                      console.error("AJAX request failed:", textStatus, errorThrown);
+                      console.error("Status:", xhr.status);
+                      console.error("Response:", xhr.responseText);
+                      alertMessage();
+                      $('#alert-message-form h5').remove();
+                      $('#alert-message-modal').modal('show');
+                      $('#warning-message').append('<h5>Connection issue.</h5>');
+                  }
+              });
+          };
 
 
