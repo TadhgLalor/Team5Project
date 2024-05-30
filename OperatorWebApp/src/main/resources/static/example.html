@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <!--    <script src="js/scripts.js"></script>-->
+    <!-- Custom JS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+        <div class="list-group list-group-flush">
+            <button id="findId">Find By Caller Id</button>
+            <button id="findNode">Find by Node Id</button>
+            <button id="findAll">Find All</button>
+            <button id="findFault">Find By Fault</button>
+            <button id="bMe">Biscuit</button>
+            <button id="fetchFailuresButton" class="btn btn-primary">Fetch Total Failures</button>
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid">
+                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#!">Action</a>
+                                <a class="dropdown-item" href="#!">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid" id="addHere">
+            <h1 class="mt-4">Simple Sidebar</h1>
+            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+            <p>
+                Make sure to keep all page content within the
+                <code>#page-content-wrapper</code>
+                . The top navbar is optional, and just for demonstration. Just create an element with the
+                <code>#sidebarToggle</code>
+                ID which will toggle the menu when clicked.
+            </p>
+        </div>
+        
+        <div id="cards" class="row">
+            <p>Testing...</p>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Earnings (Annual)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4 offset-xl-1 offset-md-3">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Earnings (Annual)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Find Caller by id Modal -->
+    <div class="modal" id="findorder-model" tabindex="-1" role="dialog" aria-labelledby="findorder-model" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #2F4F4F; /* Dark Slate Gray resembles metallic dark blue */">
+                <div class="modal-header flex-column">
+                    <img class="mx-auto" src="assets/ericssonLogo.png" height="100px" width="100px" alt="Ericsson Logo" />
+                </div>
+                <div class="modal-body mx-auto">
+                    <label for="userentry">Caller ID:</label>
+                    <div class="btn-group" role="group">
+                        <input type="text" id="userentry" name="userentry" />
+                        <div class="dropdown-menu" id="ModeldropdownMenuUS8" style="max-height: 200px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+                <form id="merchContent" class="container text-center" style="width: max-content;">
+                    <div>
+                        <button type="button" class="btn btn-primary mx-2" id="Find_but">
+                            <span data-feather="codesandbox" class="align-text-bottom"></span> Yes</button>
+                        <button type="button" class="btn btn-primary mx-2" id="Cancel">
+                            <span data-feather="bar-chart-2" class="align-text-bottom"></span> No</button>
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End of find caller by id modal-->
+
+    <!-- Find by node id Modal -->
+    <div class="modal" id="findNode-model" tabindex="-1" role="dialog" aria-labelledby="findNode-model" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #2F4F4F; /* Dark Slate Gray resembles metallic dark blue */">
+                <div class="modal-header flex-column">
+                    <img class="mx-auto" src="assets/ericssonLogo.png" height="100px" width="100px" alt="Ericsson Logo" />
+                </div>
+                <div class="modal-body mx-auto">
+                    <label for="userEntry2">Node ID:</label>
+                    <div class="btn-group" role="group">
+                        <input type="text" id="userEntry2" name="userEntry2" />
+                        <div class="dropdown-menu" id="ModeldropdownMenuUS9" style="max-height: 200px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+                <form id="merchContent1" class="container text-center" style="width: max-content;">
+                    <div>
+                        <button type="button" class="btn btn-primary mx-2" id="Find_but2">
+                            <span data-feather="codesandbox" class="align-text-bottom"></span> Yes</button>
+                        <button type="button" class="btn btn-primary mx-2" id="Cancel2">
+                            <span data-feather="bar-chart-2" class="align-text-bottom"></span> No</button>
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End of find by node id modal-->
+
+    <!-- Total Call Failures Modal -->
+	<div class="modal fade" id="alert-message-modal" tabindex="-1" role="dialog" aria-labelledby="alertMessageModalLabel" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <!-- <h5 class="modal-title" id="alertMessageModalLabel">Total Call Failures</h5> -->
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <div class="modal-body" id="information-message"></div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- End of Total Call Failures Modal -->
+
+    <!-- Total Call Failures Modal -->
+    <div class="modal fade" id="alert-message-modal" tabindex="-1" role="dialog" aria-labelledby="alertMessageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertMessageModalLabel">Warning</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="warning-message"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Total Call Failures Modal -->
+
+</div>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/modalAccess.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- Custom JS for Total Call Failures -->
+<script>
+    function fetchTotalFailures() {
+    var totalFailuresUrl = "http://localhost:8081/api/total-failures";
+    $.ajax({
+        type: 'GET',
+        url: totalFailuresUrl,
+        dataType: "json",
+        success: function(data) {
+            if (data === null || data === undefined) {
+                console.log("No data available");
+                $('#information-message').empty().append('<h5>No Data available</h5>');
+                $('#alert-message-modal').modal('show');
+            } else {
+                console.log(data);
+                $('#information-message').empty().append('<h5>Total Call Failures: ' + data + '</h5>');
+                $('#alert-message-modal').modal('show');
+            }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.error("AJAX request failed:", textStatus, errorThrown);
+            console.error("Status:", xhr.status);
+            console.error("Response:", xhr.responseText);
+            $('#information-message').empty().append('<h5>Connection issue.</h5>');
+            $('#alert-message-modal').modal('show');
+        }
+    });
+}
+
+$(document).ready(function() {
+    $('#fetchFailuresButton').on('click', fetchTotalFailures);
+});
+
+</script>
+</body>
+</html>

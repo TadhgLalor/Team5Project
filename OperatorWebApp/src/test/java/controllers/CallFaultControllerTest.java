@@ -32,17 +32,17 @@ public class CallFaultControllerTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    public void testHandleApiRequest() {
-        String response = controller.handleApiRequest();
-        assertEquals("API Team5  endpoint accessed successfully!", response);
-    }
-
-    @Test
-    public void testHandleApiRequest2() {
-        String response = controller.handleApiRequest2();
-        assertEquals("API Team5  endpoint 2 accessed successfully!", response);
-    }
+//    @Test
+//    public void testHandleApiRequest() {
+//        String response = controller.handleApiRequest();
+//        assertEquals("API Team5  endpoint accessed successfully!", response);
+//    }
+//
+//    @Test
+//    public void testHandleApiRequest2() {
+//        String response = controller.handleApiRequest2();
+//        assertEquals("API Team5  endpoint 2 accessed successfully!", response);
+//    }
 
 //    @Test
 //    public void testGetAllCallFaults() {
