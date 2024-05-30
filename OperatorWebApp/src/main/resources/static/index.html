@@ -31,7 +31,7 @@
             <button id="findId">Find By Caller Id</button>
             <button id="findNode">Find by Node Id</button>
             <button id="findAll">Find All</button>
-            <button id="dogMe">Dog</button>
+            <button id="findFault">Find By Fault</button>
             <button id="bMe">Biscuit</button>
         </div>
     </div>
@@ -167,7 +167,33 @@
 </div>
 <!-- End of find by node id modal-->
 
-
+<!-- Find by Fault Modal -->
+<div class="modal" id="findFault-model" tabindex="-1" role="dialog" aria-labelledby="findFault-model" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: #2F4F4F; /* Dark Slate Gray resembles metallic dark blue */">
+            <div class="modal-header flex-column">
+                <img class="mx-auto" src="assets/ericssonLogo.png" height="100px" width="100px" alt="Ericsson Logo" />
+            </div>
+            <div class="modal-body mx-auto">
+                <label for="userEntry3">Fault Reason:</label>
+                <div class="btn-group" role="group">
+                    <input type="text" id="userEntry3" name="userEntry2" />
+                    <div class="dropdown-menu" id="ModeldropdownMenuUS10" style="max-height: 200px; overflow-y: auto;"></div>
+                </div>
+            </div>
+            <form id="merchContent2" class="container text-center" style="width: max-content;">
+                <div>
+                    <button type="button" class="btn btn-primary mx-2" id="Find_but3">
+                        <span data-feather="codesandbox" class="align-text-bottom"></span> Yes</button>
+                    <button type="button" class="btn btn-primary mx-2" id="Cancel3">
+                        <span data-feather="bar-chart-2" class="align-text-bottom"></span> No</button>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End of find by Fault modal-->
 
 
 
