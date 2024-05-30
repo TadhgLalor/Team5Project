@@ -61,10 +61,12 @@ public class CallFaultController {
         return repository.findByCallerIdAndFaultTimestampBetween(callerId, timestamp.minusMinutes(1), timestamp.plusMinutes(1));
     }
 
-    @GetMapping("/failures/node/{nodeId}/timestamp/{timestamp}")
+
+    @GetMapping("/failures/node/{nodeId}/timestamp/{timestamp}/{endDate}")
     public List<CallFault> getFailuresByNodeAndTimestamp(
             @PathVariable Integer nodeId,
-            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime timestamp){
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime timestamp,
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime timestamp2){
         return repository.findByNodeIdAndFaultTimestampBetween(nodeId, timestamp.minusMinutes(1), timestamp.plusMinutes(1));
     }
 
@@ -83,11 +85,12 @@ public class CallFaultController {
         return repository.findByCallerIdAndFaultTimestampBetween(callerId, startTime, endTime);
     }
 
+
     @GetMapping("/failures/node/{nodeId}/timestamp/start/{startTime}/end/{endTime}")
     public List<CallFault> getFailuresByNodeAndTimeRange(
-        @PathVariable Integer nodeId,
-        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
-        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime) {
+            @PathVariable Integer nodeId,
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime,
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endTime) {
         return repository.findByNodeIdAndFaultTimestampBetween(nodeId, startTime, endTime);
     }
 }

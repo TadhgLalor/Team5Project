@@ -186,7 +186,6 @@ function findNode(nodeId) {
            ///////Find By Node & Date/Time ///////
           ///////////////////////////////////////
      document.getElementById('nodeFD').addEventListener('click', function() {
-        console.log("Buttonn clicked")
           $('#NodeTimeFind').modal('show');
       });
 
@@ -195,15 +194,16 @@ function findNode(nodeId) {
      });
 
      $(document).on("click", "#SubmitQueryF", function() {
-     	var fault = document.getElementById('userEntry3').value;
-     	findByNodeNDateTime(fault);
+     	var IDFindND = document.getElementById('userEntryFD').value;
+     	var startND= document.getElementById('start_datetimeF').value;
+     	var endND= document.getElementById('end_datetimeF').value;
+     	findByNodeNDateTime(IDFindND,startND,endND);
      });
 
 
-     function findByNodeNDateTime(fault) {
-         console.log("find by fault ajax function called"+fault);
+     function findByNodeNDateTime(IDFindND,startND,endND) {
 
-         var findFaultUrl = "http://localhost:8081/api/failures/reason/"+fault
+         var findFaultUrl = "http://localhost:8081/api/failures/node/"+IDFindND+"/timestamp/start/"+startND+"/end/"+endND
               $.ajax({
                   type: 'GET',
                   url: findFaultUrl,
@@ -219,7 +219,7 @@ function findNode(nodeId) {
                       console.log(data)
                       $('#findFault-model').modal('hide');
                           let headings = ['Node Id', 'Network Id', 'Network Name', 'Caller Id', 'Caller Name', 'Fault Reason', 'Time'];
-                          let query = 'Find By Fault Reason: ';
+                          let query = 'Find By Node & Time Period: ';
                           let column_list = [
                               { data: 'nodeId' },
                               { data: 'networkId' },
