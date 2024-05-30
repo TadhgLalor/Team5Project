@@ -8,7 +8,6 @@ public class OperatorWebAppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OperatorWebAppApplication.class, args);
-        System.out.println("OperatorWebAppApplication running...");
     }
 
 }
