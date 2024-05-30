@@ -32,7 +32,7 @@
             <button id="findNode">Find by Node Id</button>
             <button id="findAll">Find All</button>
             <button id="findFault">Find By Fault</button>
-            <button id="bMe">Biscuit</button>
+            <button id="nodeFD">Find By Node & Date</button>
             <button id="fetchFailuresButton">Fetch Total Failures</button>
         </div>
     </div>
@@ -76,7 +76,7 @@
 <!-- Find Caller by id Modal -->
 <div class="modal" id="findorder-model" tabindex="-1" role="dialog" aria-labelledby="findorder-model" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="background-color: #2F4F4F; /* Dark Slate Gray resembles metallic dark blue */">
+        <div class="modal-content" style="background-color: #2F4F4F; ">
             <div class="modal-header flex-column">
                 <img class="mx-auto" src="assets/ericssonLogo.png" height="100px" width="100px" alt="Ericsson Logo" />
             </div>
@@ -175,6 +175,60 @@
 	    </div>
 	</div>
 	<!-- End of Total Call Failures Modal -->
+
+
+<!-- Find data of Node Between Timestamps-->
+    <div class="modal" id="NodeTimeFind" tabindex="-1" role="dialog" aria-labelledby="NodeTimeFind"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #2F4F4F; ">
+                <div class="modal-header flex-column">
+                    <img class="mx-auto" src="assets/ericssonLogo.png" height="100px" width="100px"
+                         alt="Ericsson Logo" />
+                </div>
+
+                <div class="modal-body mx-auto">
+                    <label for="userentry">Node ID:</label>
+                    <div class="btn-group" role="group">
+                        <input type="text" id="userEntryFD" name="userentry" />
+                        <div class="dropdown-menu" id="ModeldropdownMenuFD" style="max-height: 200px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+
+                <div class="modal-body mx-auto">
+                    <label for="start_datetimeF">Start Date and Time:</label>
+                    <input type="datetime-local" id="start_datetimeF" name="start_datetimeF">
+
+                    <label for="end_datetimeF">End Date and Time:</label>
+                    <input type="datetime-local" id="end_datetimeF" name="end_datetimeF">
+
+                    <script>
+                        startDatetimeInput = document.getElementById('start_datetimeUS15');
+                        endDatetimeInput = document.getElementById('end_datetimeUS15');
+
+                        startDatetimeInput.addEventListener('change', function () {
+                            endDatetimeInput.min = this.value;
+                            if (endDatetimeInput.value < this.value) {
+                                endDatetimeInput.value = this.value;
+                            }
+                        });
+
+                        endDatetimeInput.addEventListener('change', function () {
+                            if (this.value < startDatetimeInput.value) {
+                                endDatetimeInput.value = startDatetimeInput.value;
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary mx-2" data-dismiss="modal" id="cancel4">Cancel</button>
+                    <button type="button" class="btn btn-primary mx-2" data-dismiss="modal"
+                            id="SubmitQueryF">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Find data of Node Between Timestamps-->
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
