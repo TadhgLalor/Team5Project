@@ -20,21 +20,33 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-
 </head>
+
+<style>
+    .sbar button {
+       margin: 0.5em;
+    }
+
+    .modal-header, .modal-body, .modal-content, .modal-footer {
+        background: #ffffff !important;
+    }
+
+</style>
+
 <body>
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light">Team Nexus</div>
-        <div class="list-group list-group-flush">
+        <div class="sbar list-group list-group-flush">
 			<button id="nodeFD">Find By Node ID & Date</button>
             <button id="callerIDFD">Find By Caller ID & Date</button>
             <button id="fetchFailuresButton">Fetch Total Failures</button>
+            <button id="findAll">Find All</button>
             <button id="findId">Find By Caller Id</button>
             <button id="findNode">Find by Node Id</button>
-            <button id="findAll">Find All</button>
-            <button id="findFault">Find By Fault</button>    
+            <button id="findFault">Find By Fault</button>
+            <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
         </div>
     </div>
     <!-- Page content wrapper-->
@@ -42,7 +54,7 @@
         <!-- Top navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
-                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+<!--                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>-->
                 <h3>Mobile Phone Call Fault Analysis</h3>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -52,19 +64,32 @@
         </nav>
         <!-- Page content-->
         <div class="container-fluid" id="addHere">
-            <h1 class="mt-4">Radio Station Analyzer</h1>
-            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-            <p>
-                Make sure to keep all page content within the
-                <code>#page-content-wrapper</code>
-                . The top navbar is optional, and just for demonstration. Just create an element with the
-                <code>#sidebarToggle</code>
-                ID which will toggle the menu when clicked.
-            </p>
+                <h2 style="margin-top: 0.5em;">Welcome to the Analysis Tool!</h2>
+                <p>This tool provides a comprehensive solution for analyzing call failures in mobile networks. Use the menu on the left to explore various functionalities such as:</p>
+                <ul>
+                    <li>Searching by Node ID, Caller ID, or date range</li>
+                    <li>Fetching total failures</li>
+                    <li>Finding all records</li>
+                    <li>Finding specific records by Node ID or Caller ID</li>
+                    <li>Analyzing call faults</li>
+                </ul>
+                <h2>Getting Started</h2>
+                <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+<!--                <h2>Important Note</h2>-->
+<!--                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#sidebarToggle</code> ID which will toggle the menu when clicked.</p>-->
+
+<!--            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>-->
+<!--            <p>-->
+<!--                Make sure to keep all page content within the-->
+<!--                <code>#page-content-wrapper</code>-->
+<!--                . The top navbar is optional, and just for demonstration. Just create an element with the-->
+<!--                <code>#sidebarToggle</code>-->
+<!--                ID which will toggle the menu when clicked.-->
+<!--            </p>-->
         </div>
 </div>
 <!-- Find Caller by id Modal -->
-<div class="modal" id="findorder-model" tabindex="-1" role="dialog" aria-labelledby="findorder-model" aria-hidden="true">
+<div class="my-modal modal" id="findorder-model" tabindex="-1" role="dialog" aria-labelledby="findorder-model" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: #2F4F4F; ">
             <div class="modal-header flex-column">
@@ -79,10 +104,11 @@
             </div>
             <form id="merchContent" class="container text-center" style="width: max-content;">
                 <div>
-                    <button type="button" class="btn btn-primary mx-2" id="Find_but">
-                        <span data-feather="codesandbox" class="align-text-bottom"></span> Yes</button>
                     <button type="button" class="btn btn-primary mx-2" id="Cancel">
-                        <span data-feather="bar-chart-2" class="align-text-bottom"></span> No</button>
+                        <span data-feather="bar-chart-2" class="align-text-bottom"></span>Cancel</button>
+                    <button type="button" class="btn btn-primary mx-2" id="Find_but">
+                        <span data-feather="codesandbox" class="align-text-bottom"></span>Search</button>
+
                 </div>
                 <br />
             </form>
@@ -92,7 +118,7 @@
 <!-- End of find caller by id modal-->
 
 <!-- Find by node id Modal -->
-<div class="modal" id="findNode-model" tabindex="-1" role="dialog" aria-labelledby="findNode-model" aria-hidden="true">
+<div class="my-modal modal" id="findNode-model" tabindex="-1" role="dialog" aria-labelledby="findNode-model" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: #2F4F4F; /* Dark Slate Gray resembles metallic dark blue */">
             <div class="modal-header flex-column">
@@ -107,10 +133,11 @@
             </div>
             <form id="merchContent1" class="container text-center" style="width: max-content;">
                 <div>
-                    <button type="button" class="btn btn-primary mx-2" id="Find_but2">
-                        <span data-feather="codesandbox" class="align-text-bottom"></span> Yes</button>
                     <button type="button" class="btn btn-primary mx-2" id="Cancel2">
-                        <span data-feather="bar-chart-2" class="align-text-bottom"></span> No</button>
+                        <span data-feather="bar-chart-2" class="align-text-bottom"></span>Cancel</button>
+                    <button type="button" class="btn btn-primary mx-2" id="Find_but2">
+                        <span data-feather="codesandbox" class="align-text-bottom"></span>Search</button>
+
                 </div>
                 <br />
             </form>
@@ -120,7 +147,7 @@
 <!-- End of find by node id modal-->
 
 <!-- Find by Fault Modal -->
-<div class="modal" id="findFault-model" tabindex="-1" role="dialog" aria-labelledby="findFault-model" aria-hidden="true">
+<div class="my-modal modal" id="findFault-model" tabindex="-1" role="dialog" aria-labelledby="findFault-model" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="background-color: #2F4F4F; /* Dark Slate Gray resembles metallic dark blue */">
             <div class="modal-header flex-column">
@@ -135,10 +162,10 @@
             </div>
             <form id="merchContent2" class="container text-center" style="width: max-content;">
                 <div>
-                    <button type="button" class="btn btn-primary mx-2" id="Find_but3">
-                        <span data-feather="codesandbox" class="align-text-bottom"></span> Yes</button>
                     <button type="button" class="btn btn-primary mx-2" id="Cancel3">
-                        <span data-feather="bar-chart-2" class="align-text-bottom"></span> No</button>
+                        <span data-feather="bar-chart-2" class="align-text-bottom"></span>Cancel</button>
+                    <button type="button" class="btn btn-primary mx-2" id="Find_but3">
+                        <span data-feather="codesandbox" class="align-text-bottom"></span>Search</button>
                 </div>
                 <br />
             </form>
@@ -166,7 +193,7 @@
 
 
 <!-- Find data of Node Between Timestamps-->
-    <div class="modal" id="NodeTimeFind" tabindex="-1" role="dialog" aria-labelledby="NodeTimeFind"
+    <div class="my-modal modal" id="NodeTimeFind" tabindex="-1" role="dialog" aria-labelledby="NodeTimeFind"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="background-color: #2F4F4F; ">
@@ -175,20 +202,25 @@
                          alt="Ericsson Logo" />
                 </div>
 
+<!--                <div class="modal-body mx-auto">-->
+<!--                    <label for="userEntryFD">Node ID:</label>-->
+<!--                    <div class="btn-group" role="group">-->
+<!--                        <input type="text" id="userEntryFD" name="userentry" />-->
+<!--                        <div class="dropdown-menu" id="ModeldropdownMenuFD" style="max-height: 200px; overflow-y: auto;"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
                 <div class="modal-body mx-auto">
-                    <label for="userEntryFD">Node ID:</label>
+                    <Label for="userEntryFD">Node ID:</Label>
                     <div class="btn-group" role="group">
                         <input type="text" id="userEntryFD" name="userentry" />
                         <div class="dropdown-menu" id="ModeldropdownMenuFD" style="max-height: 200px; overflow-y: auto;"></div>
-                    </div>
-                </div>
-
-                <div class="modal-body mx-auto">
+                    </div> <br><br>
                     <label for="start_datetimeF">Start Date and Time:</label>
-                    <input type="datetime-local" id="start_datetimeF" name="start_datetimeF">
+                    <input type="datetime-local" id="start_datetimeF" name="start_datetimeF">  <br><br>
 
                     <label for="end_datetimeF">End Date and Time:</label>
-                    <input type="datetime-local" id="end_datetimeF" name="end_datetimeF">
+                    <input type="datetime-local" id="end_datetimeF" name="end_datetimeF">  <br><br>
 
                     <script>
                         startDatetimeInput = document.getElementById('start_datetimeUS15');
@@ -219,7 +251,7 @@
     <!-- Find data of Node Between Timestamps-->
 	
 <!-- Find data of Caller Between Timestamps-->
-<div class="modal" id="CallerTimeFind" tabindex="-1" role="dialog" aria-labelledby="CallerTimeFind"
+<div class="my-modal modal" id="CallerTimeFind" tabindex="-1" role="dialog" aria-labelledby="CallerTimeFind"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="background-color: #2F4F4F; ">
@@ -228,20 +260,26 @@
                          alt="Ericsson Logo" />
                 </div>
 
+<!--                <div class="modal-body mx-auto">-->
+<!--                    <label for="userEntryCallerFD">Caller ID:</label>-->
+<!--                    <div class="btn-group" role="group">-->
+<!--                        <input type="text" id="userEntryCallerFD" name="userEntrydd" />-->
+<!--                        <div class="dropdown-menu" id="ModeldropdownMenuFD2" style="max-height: 200px; overflow-y: auto;"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
                 <div class="modal-body mx-auto">
                     <label for="userEntryCallerFD">Caller ID:</label>
                     <div class="btn-group" role="group">
                         <input type="text" id="userEntryCallerFD" name="userEntrydd" />
                         <div class="dropdown-menu" id="ModeldropdownMenuFD2" style="max-height: 200px; overflow-y: auto;"></div>
-                    </div>
-                </div>
-
-                <div class="modal-body mx-auto">
+                    </div> <br><br>
                     <label for="start_datetimeFcaller">Start Date and Time:</label>
                     <input type="datetime-local" id="start_datetimeFcaller" name="start_datetimeF">
-
+                    <br><br>
                     <label for="end_datetimeFcaller">End Date and Time:</label>
                     <input type="datetime-local" id="end_datetimeFcaller" name="end_datetimeF">
+                    <br><br>
 
                     <script>
                         startDatetimeInput = document.getElementById('start_datetimecaller');
